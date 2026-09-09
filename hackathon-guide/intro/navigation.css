@@ -24,6 +24,6 @@
 }
 
 /* Both words share a fixed line, so the poster never shifts during a reveal. */
-.poster-brand-reveal{display:grid;overflow:clip;padding-block:.14em;margin-block:-.14em}
+.poster-brand-reveal{position:relative;display:grid;grid-template-rows:minmax(0,1fr);height:.84em;line-height:.84;overflow:hidden;clip-path:inset(0);isolation:isolate;padding:0;margin:0}
 .poster-brand-word{grid-area:1/1;display:block;white-space:nowrap}
 .poster-brand-word + .poster-brand-word{visibility:hidden}

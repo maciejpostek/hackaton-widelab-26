@@ -46,3 +46,11 @@ Kliknięcie tych pozycji wyświetla „Link do uzupełnienia”. Treści o Claud
 ## Animacja nazwy na stronie głównej
 
 `intro/brand-reveal.js` wykorzystuje lokalne GSAP i SplitText 3.13.0 (`intro/vendor/`) do zamiany Widehue / Widelab co 10 sekund. Animowany jest cały wiersz. Preferencja reduced motion wyłącza tę animację, a ukrycie karty ją pauzuje. Biblioteki pochodzą z pakietu npm `gsap@3.13.0`, pobranego przez jsDelivr; informacje licencyjne zachowano w nagłówkach plików. Dokumentacja: https://gsap.com/docs/v3/Plugins/SplitText/
+
+## Demonstracje w accordionach
+
+Sześć demonstracji w `js/tutorials.js` i `css/tutorials.css`: folder w Claude, terminal / Node.js, serwer Astro, import strategii, wireframe, screen inspiracji. Wzorowane na koncepcji scen `../widelab-hackathon-main/site/tutorial.js`, przepisane na tokeny i strukturę naszej agendy. To schematyczne ilustracje, nie rzeczywiste okna aplikacji; nie uruchamiają poleceń ani nie przesyłają plików.
+
+Sceny mają trzy fazy, przyciski Pauza / Odtwórz i Dalej. Pętla działa tylko w otwartym, widocznym accordionie i aktywnej karcie. Reduced motion domyślnie zatrzymuje automatyczne przechodzenie i wyłącza ruch. Bez JavaScript pozostają pełne instrukcje tekstowe.
+
+Weryfikacja: składnia JS, zachowanie oryginalnych treści oraz test sterowania fazami i zatrzymywania timerów. Podgląd przeglądarkowy `file://` został zablokowany przez narzędzie; responsywność wymaga jeszcze wizualnego sprawdzenia.

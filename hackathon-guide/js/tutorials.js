@@ -21,8 +21,8 @@
       body: '<div class="demo-terminal"><span class="demo-mini">TERMINAL · STARTER ASTRO</span><div class="demo-command">$ npm install</div><div class="demo-command" data-reveal="1">$ npm run dev</div><div class="demo-output" data-reveal="2">Local: http://localhost:4321/<br><span class="demo-mini">Przykładowy adres — użyj adresu ze swojego terminala.</span></div></div>' + browser(skeleton)
     },
     'import-strategy': {
-      title: 'Strategia → kontekst projektu', kind: 'drag', steps: ['Otwórz nowy wątek w projekcie.', 'Załącz plik Markdown i wklej prompt z instrukcji poniżej.', 'Sprawdź podsumowanie zapisanych plików i brakujących informacji.'],
-      body: file('strategia.md') + chat('Claude · nowy wątek', '📎 strategia.md<br>Przenieś kontekst do plików projektu. Nie twórz jeszcze interfejsu.', 'Kontekst zapisany.<br>Sprawdź: zmienione pliki, fakty, założenia i otwarte kwestie.')
+      title: 'Strategia → kontekst projektu', kind: 'drag', steps: ['Otwórz nowy wątek w projekcie.', 'Załącz brief.md oraz uzupełnienie, jeśli strategia się zmieniła. Wklej prompt poniżej.', 'Sprawdź podsumowanie zapisanych plików i brakujących informacji.'],
+      body: file('brief.md') + chat('Claude · nowy wątek', '📎 brief.md + uzupełnienie, jeśli dotyczy<br>Przenieś kontekst do plików projektu. Nie twórz jeszcze interfejsu.', 'Kontekst zapisany.<br>Sprawdź: zmienione pliki, fakty, założenia i otwarte kwestie.')
     },
     'build-wireframe': {
       title: 'Zatwierdzony plan → wireframe', kind: 'build', steps: ['Wklej zatwierdzony plan 2–3 sekcji.', 'Poproś o wireframe z istniejących komponentów startera.', 'Sprawdź strukturę i kolejność sekcji w przeglądarce.'],

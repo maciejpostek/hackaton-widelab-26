@@ -29,8 +29,7 @@ Postęp zapisuje się pod oryginalnym kluczem `hackathon-2026-solo-flow-v1`. Na 
 Pozostawione zgodnie ze źródłem, bez wymyślania adresów:
 
 1. Pobranie startera Astro — `data-missing-link="astro-starter"`.
-2. Pobranie strategii Markdown — `data-missing-link="strategy-markdown"`.
-3. CSS Awards w liście inspiracji — pusty URL.
+2. CSS Awards w liście inspiracji — pusty URL.
 
 Kliknięcie tych pozycji wyświetla „Link do uzupełnienia”. Treści o Claude, Mecha i kroku 0 są zachowane dosłownie. Przewodnik nie wykonuje zawartych w nim komend.
 
@@ -54,3 +53,7 @@ Sześć demonstracji w `js/tutorials.js` i `css/tutorials.css`: folder w Claude,
 Sceny mają trzy fazy, przyciski Pauza / Odtwórz i Dalej. Pętla działa tylko w otwartym, widocznym accordionie i aktywnej karcie. Reduced motion domyślnie zatrzymuje automatyczne przechodzenie i wyłącza ruch. Bez JavaScript pozostają pełne instrukcje tekstowe.
 
 Weryfikacja: składnia JS, zachowanie oryginalnych treści oraz test sterowania fazami i zatrzymywania timerów. Podgląd przeglądarkowy `file://` został zablokowany przez narzędzie; responsywność wymaga jeszcze wizualnego sprawdzenia.
+
+## Pakiety strategiczne w kroku 02.1
+
+`downloads/mecha-{atlas,catch,almanac,undo}.zip` to identyczne kopie archiwów z `../widelab-hackathon-main/site/dl/`. Zawierają briefy ćwiczeniowe i branding. Uczestnik wybiera pakiet z pierwszego dnia, rozpakowuje go i załącza `pakiet/brief.md` oraz własne uzupełnienie Markdown, jeśli strategia się zmieniła. Zweryfikowano zgodność SHA-256 i integralność ZIP-ów.

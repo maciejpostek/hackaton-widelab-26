@@ -700,3 +700,8 @@ pre { padding: 28px; }
   .hero-topbar .brand { width: 120px; }
   .hero-topbar .hero-description { min-width: 0; }
 }
+
+/* Download packages remain readable at narrow accordion widths. */
+.strategy-downloads{display:flex;flex-wrap:wrap;gap:24px 40px;margin-block:32px 40px}
+.strategy-downloads .button{max-width:100%}
+.strategy-downloads .primary-label{white-space:normal;text-align:left}

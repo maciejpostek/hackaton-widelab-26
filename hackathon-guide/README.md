@@ -57,3 +57,9 @@ Weryfikacja: składnia JS, zachowanie oryginalnych treści oraz test sterowania 
 ## Pakiety strategiczne w kroku 02.1
 
 `downloads/mecha-{atlas,catch,almanac,undo}.zip` to identyczne kopie archiwów z `../widelab-hackathon-main/site/dl/`. Zawierają briefy ćwiczeniowe i branding. Uczestnik wybiera pakiet z pierwszego dnia, rozpakowuje go i załącza `pakiet/brief.md` oraz własne uzupełnienie Markdown, jeśli strategia się zmieniła. Zweryfikowano zgodność SHA-256 i integralność ZIP-ów.
+
+## Widok mobilny agendy
+
+`css/mobile.css` ładowany na końcu: tytuły zadań 20 px (18 px do 480 px), mniejsze paddingi, gutter timeline’u 20–24 px, kompaktowe plusy i checkboxy. Cały nagłówek accordionu pozostaje klikalny. Dostosowane także demonstracje, pobieranie pakietów i bloki kodu.
+
+Sprawdzono przez lokalny HTTP: 320, 390, 760 i 1440 px bez poziomego overflow strony. Przy 320 px wszystkie 11 accordionów otwarte, bez overflow demonstracji; brak błędów w konsoli JS. Widok 390 px sprawdzono na zrzucie ekranu.

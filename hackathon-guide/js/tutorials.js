@@ -30,8 +30,8 @@
       body: file('brief.md') + chat('Claude · nowy wątek', '📎 brief.md + uzupełnienie, jeśli dotyczy<br>Przenieś kontekst do plików projektu. Nie twórz jeszcze interfejsu.', 'Kontekst zapisany.<br>Sprawdź: zmienione pliki, fakty, założenia i otwarte kwestie.')
     },
     'build-wireframe': {
-      title: 'Zatwierdzony plan → wireframe', kind: 'build', steps: ['Wklej zatwierdzony plan 2–3 sekcji.', 'Poproś o wireframe z istniejących komponentów startera.', 'Sprawdź strukturę i kolejność sekcji w przeglądarce.'],
-      body: chat('Claude · starter Astro', 'Zbuduj wireframe na podstawie zatwierdzonej architektury. Użyj istniejących komponentów i tokenów.', 'Sprawdź układ, hierarchię i przepływ informacji w podglądzie.') + browser(skeleton)
+      title: 'Zatwierdzony plan → wireframe', kind: 'build', steps: ['Kontynuuj wątek z zatwierdzoną architekturą informacji.', 'Poproś o wireframe z istniejących komponentów startera.', 'Sprawdź strukturę i kolejność sekcji w przeglądarce.'],
+      body: chat('Claude · starter Astro', 'Zbuduj wireframe według naszych ustaleń. Użyj design systemu, brand rules i brand.md, a teksty oprzyj na strategii marki.', 'Sprawdź układ, hierarchię i przepływ informacji w podglądzie.') + browser(skeleton)
     },
     'find-and-collect-inspiration': {
       title: 'Screen → wybrana sekcja', kind: 'drag', steps: ['Wybierz screen sekcji, która Cię inspiruje.', 'Załącz go do Claude i opisz, co chcesz wykorzystać.', 'Poproś o sekcję procesu zgodną z brandingiem Mecha.'],

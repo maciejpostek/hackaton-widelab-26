@@ -1,293 +1,47 @@
 <!doctype html>
 <html lang="pl" data-theme="light">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <title>Hackathon 2026 — Widehue</title>
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/flow.css?v=hero-workflow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ebebeb">
+<title>Hackathon — Widelab</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="intro/assets/brand/widelab.svg">
+<link rel="stylesheet" href="intro/css/tokens.css">
+<link rel="stylesheet" href="intro/css/system.css">
+<link rel="stylesheet" href="intro/css/app.css">
+<link rel="stylesheet" href="intro/navigation.css">
 </head>
 <body>
-  <main class="page">
-    <div class="hero-section" data-theme="light">
-    <div class="hero-topbar">
-      <a class="brand" href="index.html" aria-label="Widehue — początek"><img src="assets/brand/wordmark.svg" alt="Widehue" width="180" height="31"></a>
-      <p class="hero-description">Astro framework starter for Mecha brand with AI</p>
+<!-- Intro: plakat "In prompt we trust" (Figma: Widelab — Merch, v4) przeniesiony na ekran. Jedyny klik: strzałka. -->
+<section class="intro poster" id="intro" aria-label="Hackathon Widelab">
+  <h1 class="poster-line poster-top">In prompt<br>we trust</h1>
+  <div class="poster-band">
+    <p class="poster-cap cap-tl">Reconciling design challenge with depleting credits…</p>
+    <p class="poster-cap cap-tr">Emailing client AI‑generated feedback in response to their AI‑generated feedback</p>
+    <svg class="poster-rings" viewBox="0 0 1000 500" fill="none" aria-hidden="true">
+      <g stroke="currentColor" stroke-width="1.4" vector-effect="non-scaling-stroke">
+        <ellipse pathLength="1" cx="260" cy="250" rx="240" ry="247"/>
+        <ellipse pathLength="1" cx="350" cy="250" rx="150" ry="247"/>
+        <ellipse pathLength="1" cx="435" cy="250" rx="65" ry="247"/>
+        <ellipse pathLength="1" cx="740" cy="250" rx="240" ry="247"/>
+        <ellipse pathLength="1" cx="650" cy="250" rx="150" ry="247"/>
+        <ellipse pathLength="1" cx="565" cy="250" rx="65" ry="247"/>
+      </g>
+    </svg>
+    <div class="poster-dates">
+      <span class="poster-line">11.09</span>
+      <a class="poster-go" href="agenda.html" aria-label="Zaczynamy">
+        <svg viewBox="0 0 420 126" fill="none" aria-hidden="true"><path d="M0 63H394" stroke="currentColor" stroke-width="14" stroke-linecap="butt"/><path d="M338 8l55 55-55 55" stroke="currentColor" stroke-width="14" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"/></svg>
+        <span class="eyebrow">Zaczynamy</span>
+      </a>
+      <span class="poster-line">12.09</span>
     </div>
-    <header class="hero">
-      <h1>Hackathon</h1>
-      <p class="hero-subtitle">ai workflow</p>
-      
-    </header>
-    </div>
+    <p class="poster-cap cap-bl">Product<br>design</p>
+    <p class="poster-cap cap-br">Marketing<br>design</p>
+  </div>
+  <p class="poster-line poster-bottom">Hackathon<br>Widelab</p>
+</section>
 
-    <section class="timeline" aria-label="Proces hackathonu">
-      <div class="timeline-rail" aria-hidden="true"><div class="timeline-fill"></div></div>
-      <section class="stage" id="krok-1">
-        <div class="stage-summary">
-          <span class="stage-number" aria-hidden="true"></span>
-          <span><span class="eyebrow">Setup / około 10 minut <span class="stage-status">✓ Gotowe</span></span><span class="stage-title">Przygotuj środowisko</span></span>
-        </div>
-        <div class="stage-body">
-          <p class="stage-lead">Pobierz starter, otwórz właściwy folder w Claude, przygotuj Node.js i uruchom lokalny podgląd. Figmę podłącz tylko wtedy, gdy chcesz z niej importować materiały.</p>
-          <div class="tasks">
-            <details class="task" data-task="download-starter">
-              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Pobierz i rozpakuj starter Astro</span><span class="task-plus" aria-hidden="true"><svg class="disclosure-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="m8 12 8 8 8-8"/></svg></span></summary>
-              <div class="task-content">
-                <div class="task-copy">
-                  <p>Pobierz paczkę, rozpakuj ją w łatwym do znalezienia miejscu i nazwij folder według produktu, np. <strong>nazwa-produktu-landing</strong>.</p>
-                  <div class="links"><a class="button button--accent button--download" href="#" aria-disabled="true" data-missing-link="astro-starter"><span class="primary-label">Pobierz starter — link do uzupełnienia</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg></span></a></div>
-                </div>
-                <button class="button button--done" type="button" data-done><span class="primary-label">Oznacz jako gotowe</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
-              </div>
-            </details>
-
-            <details class="task" data-task="open-claude">
-              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Otwórz Claude i wskaż folder projektu</span><span class="task-plus" aria-hidden="true"><svg class="disclosure-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="m8 12 8 8 8-8"/></svg></span></summary>
-              <div class="task-content">
-                <div class="task-copy"><p>Uruchom Claude i wskaż dokładnie folder, w którym znajduje się rozpakowany starter Astro. Przed każdym promptem upewnij się, że pracujesz w prawidłowym projekcie.</p></div>
-                <button class="button button--done" type="button" data-done><span class="primary-label">Oznacz jako gotowe</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
-              </div>
-            </details>
-
-            <details class="task" data-task="install-node">
-              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Otwórz terminal w Claude i zainstaluj Node.js</span><span class="task-plus" aria-hidden="true"><svg class="disclosure-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="m8 12 8 8 8-8"/></svg></span></summary>
-              <div class="task-content">
-                <div class="task-copy">
-                  <p>Po otwarciu projektu uruchom terminal w prawym górnym rogu Claude. Możesz też użyć aplikacji <strong>Terminal</strong> na swoim komputerze — wtedy najpierw przejdź do folderu projektu.</p>
-                  <p>Wybierz polecenie odpowiednie dla swojego systemu.</p>
-                  <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">macOS / Homebrew</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>brew install node</pre>
-                  </div>
-                  <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Windows / winget</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>winget install OpenJS.NodeJS.LTS</pre>
-                  </div>
-                  <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Sprawdź instalację</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>node --version
-npm --version</pre>
-                  </div>
-                  <p>Poprawny wynik pokazuje numer wersji Node.js rozpoczynający się od <strong>v</strong> oraz numer npm. Jeżeli polecenie nie istnieje albo nie zwraca numerów wersji, zgłoś problem prowadzącemu.</p>
-                </div>
-                <button class="button button--done" type="button" data-done><span class="primary-label">Oznacz jako gotowe</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
-              </div>
-            </details>
-
-            <details class="task" data-task="connect-figma" data-optional="true">
-              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Połącz Figmę z Claude przez plugin / MCP</span><span class="optional-note">(opcjonalnie)</span><span class="task-plus" aria-hidden="true"><svg class="disclosure-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="m8 12 8 8 8-8"/></svg></span></summary>
-              <div class="task-content">
-                <div class="task-copy">
-                  <p>Zrób to tylko wtedy, gdy chcesz przenosić z Figmy elementy wizualne, ikony, assety lub fragmenty designu. W Claude otwórz <strong>Plugins</strong>, wybierz <strong>Figma</strong> i przejdź autoryzację na koncie, na którym znajduje się właściwy projekt.</p>
-                  <p>Jeżeli nie potrzebujesz Figmy albo integracja nie działa, pomiń ten punkt. Asset możesz wyeksportować ręcznie i umieścić bezpośrednio w folderze projektu.</p>
-                </div>
-                <button class="button button--done" type="button" data-done><span class="primary-label">Oznacz opcjonalnie</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
-              </div>
-            </details>
-
-            <details class="task" data-task="start-server">
-              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Uruchom projekt w terminalu</span><span class="task-plus" aria-hidden="true"><svg class="disclosure-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="m8 12 8 8 8-8"/></svg></span></summary>
-              <div class="task-content">
-                <div class="task-copy">
-                  <p>W terminalu otwartym dla folderu projektu wpisz poniższe polecenie i naciśnij Enter.</p>
-                  <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Terminal / uruchomienie projektu</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>npm run dev</pre>
-                  </div>
-                  <p>Po chwili terminal powinien wyświetlić odpowiedź podobną do tej:</p>
-                  <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Przykładowa odpowiedź Astro</span></div>
-                    <pre>astro v5.x.x ready in 320 ms
-
-┃ Local    http://localhost:4321/
-┃ Network  use --host to expose</pre>
-                  </div>
-                  <p>Skopiuj adres widoczny przy <strong>Local</strong>, np. <strong>http://localhost:4321/</strong>. Jeżeli terminal pokaże inny port, użyj adresu wyświetlonego u siebie.</p>
-                </div>
-                <button class="button button--done" type="button" data-done><span class="primary-label">Oznacz jako gotowe</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
-              </div>
-            </details>
-
-            <details class="task" data-task="open-preview">
-              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Otwórz starter w przeglądarce</span><span class="task-plus" aria-hidden="true"><svg class="disclosure-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="m8 12 8 8 8-8"/></svg></span></summary>
-              <div class="task-content">
-                <div class="task-copy"><p>Wklej lokalny adres w pasku przeglądarki i sprawdź, czy strona startowa działa. Nie zamykaj terminala z uruchomionym serwerem. Gdy widzisz podgląd, przejdź do kroku 2.</p></div>
-                <button class="button button--done" type="button" data-done><span class="primary-label">Oznacz jako gotowe</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
-              </div>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section class="stage" id="krok-2">
-        <div class="stage-summary">
-          <span class="stage-number" aria-hidden="true"></span>
-          <span><span class="eyebrow">Strategia i wireframe / około 20 minut <span class="stage-status">✓ Gotowe</span></span><span class="stage-title">Zaimportuj strategię i zbuduj wireframe</span></span>
-        </div>
-        <div class="stage-body">
-          <p class="stage-lead">Najpierw przekaż agentowi kontekst produktu. Następnie poproś o propozycję 2–3 sekcji, wybierz kierunek i dopiero wtedy zleć budowę strukturalnej bazy strony.</p>
-          <div class="tasks">
-            <details class="task" data-task="import-strategy">
-              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Załącz strategię w nowym wątku</span><span class="task-plus" aria-hidden="true"><svg class="disclosure-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="m8 12 8 8 8-8"/></svg></span></summary>
-              <div class="task-content">
-                <div class="task-copy">
-                  <p>Otwórz nowy wątek w Claude, załącz Markdown ze strategią produktu i wklej poniższy prompt. Agent ma uzupełnić właściwe pliki startera, ale jeszcze niczego nie projektować.</p>
-                  <div class="links"><a class="button button--accent button--download" href="#" aria-disabled="true" data-missing-link="strategy-markdown"><span class="primary-label">Pobierz strategię — link do uzupełnienia</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg></span></a></div>
-                  <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Prompt 01 / import strategii</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>Przeczytaj załączony plik Markdown ze strategią produktu przygotowanego podczas pierwszego dnia. Najpierw zapoznaj się z dokumentacją startera i regułami dotyczącymi plików strategicznych.
-
-Przenieś istotny kontekst produktu do właściwych plików w projekcie. Oddziel potwierdzone fakty, założenia i brakujące informacje. Nie twórz jeszcze interfejsu ani nowych komponentów.
-
-Na końcu podsumuj, jakie pliki utworzyłeś lub zmieniłeś, oraz wskaż luki, które mogą wpłynąć na komunikację landing page’a.</pre>
-                  </div>
-                </div>
-                <button class="button button--done" type="button" data-done><span class="primary-label">Oznacz jako gotowe</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
-              </div>
-            </details>
-
-            <details class="task" data-task="propose-architecture">
-              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Poproś o propozycję architektury informacji</span><span class="task-plus" aria-hidden="true"><svg class="disclosure-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="m8 12 8 8 8-8"/></svg></span></summary>
-              <div class="task-content">
-                <div class="task-copy">
-                  <p>Poproś AI o krótki plan. Na tym etapie wybierasz, co landing page ma powiedzieć — agent nie powinien jeszcze pisać kodu.</p>
-                  <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Prompt 02 / propozycja sekcji</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>Na podstawie plików strategicznych produktu zaproponuj architekturę informacji dla landing page’a składającego się z 2–3 sekcji. Sekcje mają jasno komunikować wartość produktu i promować go właściwemu odbiorcy.
-
-Dla każdej sekcji podaj:
-1. cel komunikacyjny,
-2. jeden główny komunikat,
-3. potrzebną treść, dowód lub asset,
-4. sposób przejścia do kolejnej sekcji.
-
-Przedstaw wynik jako krótką, numerowaną listę. Nie pisz kodu, nie buduj jeszcze strony i nie dodawaj niepotwierdzonych informacji.</pre>
-                  </div>
-                </div>
-                <button class="button button--done" type="button" data-done><span class="primary-label">Oznacz jako gotowe</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
-              </div>
-            </details>
-
-            <details class="task" data-task="build-wireframe">
-              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Zleć budowę wireframe’u</span><span class="task-plus" aria-hidden="true"><svg class="disclosure-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="m8 12 8 8 8-8"/></svg></span></summary>
-              <div class="task-content">
-                <div class="task-copy">
-                  <p>Wklej wybrany i ewentualnie poprawiony wariant architektury. Agent ma zbudować działającą bazę, którą dopracujesz wizualnie w kolejnym kroku.</p>
-                  <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Prompt 03 / budowa wireframe’u</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>Zbuduj wireframe landing page’a na podstawie poniższej, zatwierdzonej architektury informacji:
-
-[WKLEJ TUTAJ WYBRANY PLAN 2–3 SEKCJI]
-
-Stwórz strukturalną bazę tych sekcji. Korzystaj z istniejących komponentów, tokenów, assetów, brandingu i agentic rules startera Mecha. Zachowaj obecny system zamiast tworzyć równoległe style. Użyj treści wynikających z plików strategicznych i nie wymyślaj brakujących faktów.
-
-Na tym etapie skup się na hierarchii, układzie i przepływie informacji — bez pełnego dopracowania wizualnego. Po implementacji sprawdź działanie strony w przeglądarce i podsumuj zmienione pliki.</pre>
-                  </div>
-                  <p class="notice"><strong>To zadanie może potrwać kilka lub kilkanaście minut.</strong> Nie czekaj bezczynnie — przejdź od razu do kroku 3 i zacznij zbierać inspiracje.</p>
-                </div>
-                <button class="button button--done" type="button" data-done><span class="primary-label">Oznacz jako gotowe</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
-              </div>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section class="stage" id="krok-3" data-theme="dark">
-        <div class="stage-summary">
-          <span class="stage-number" aria-hidden="true"></span>
-          <span><span class="eyebrow">Praca kreatywna / główny blok <span class="stage-status">✓ Gotowe</span></span><span class="stage-title">Znajdź inspiracje i iteruj</span></span>
-        </div>
-        <div class="stage-body">
-          <p class="stage-lead">W czasie budowy wireframe’u zbierz kierunek wizualny. Gdy baza będzie gotowa, rozwijaj ją małymi zmianami zgodnie z workflow startera pokazanym przez prowadzącego w kroku 0.</p>
-          <div class="tasks">
-            <details class="task" data-task="find-and-collect-inspiration">
-              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Znajdź i zbierz inspiracje</span><span class="task-plus" aria-hidden="true"><svg class="disclosure-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="m8 12 8 8 8-8"/></svg></span></summary>
-              <div class="task-content">
-                <div class="task-copy">
-                  <p>Szukaj konkretnych rozwiązań: kompozycji sekcji, sposobu pokazania produktu, zachowania typografii, animacji albo gotowej techniki. Otwieraj przydatne strony w nowych kartach, rób screenshoty i zapisuj assety oraz linki w jednym lokalnym folderze.</p>
-                  <div class="link-list" id="inspiration-list" aria-live="polite"></div>
-                  <div class="load-more-row">
-                    <span class="source-count" id="inspiration-count"></span>
-                    <button class="button" id="load-more-inspiration" type="button">Load more</button>
-                  </div>
-                  <p>Gdy wireframe będzie gotowy, załącz wybrane materiały do Claude i opisz, <strong>jaki efekt chcesz uzyskać</strong>: kompozycję, typografię, motion, asset albo sposób prezentacji produktu. Nie proś o bezpośrednie kopiowanie całej strony.</p>
-                  <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Przykład / sekcja procesu ze screena</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>Załączam screen z inspiracją pokazującą, jak chcę, żeby wyglądała sekcja procesu na moim landing page’u.
-
-Na podstawie tego screena zbuduj sekcję „Proces” w miejscu komponentu `[IDENTYFIKATOR SEKCJI]`. Potraktuj referencję jako wskazówkę dla struktury: układu nagłówka i opisu, rozmieszczenia kroków, ich numeracji, odstępów oraz sposobu połączenia ich w czytelną sekwencję.
-
-Dopasuj tę strukturę do treści mojego produktu oraz istniejących komponentów, tokenów i brandingu Mecha. Korzystaj z zatwierdzonych treści i plików strategicznych projektu. Nie kopiuj tekstów, logo ani identyfikacji wizualnej z inspiracji. Jeżeli brakuje informacji o procesie, wskaż je zamiast wymyślać kroki.
-
-Najpierw krótko opisz, jakie elementy kompozycji przeniesiesz ze screena, a następnie zbuduj sekcję. Zachowaj czytelną kolejność na mobile. Nie zmieniaj innych sekcji ani globalnych stylów. Nie dodawaj animacji lub interakcji, których nie da się ustalić na podstawie statycznego screena.
-
-Na końcu sprawdź sekcję w przeglądarce na desktopie i mobile oraz podsumuj wprowadzone zmiany.</pre>
-                  </div>
-                </div>
-                <button class="button button--done" type="button" data-done><span class="primary-label">Oznacz jako gotowe</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
-              </div>
-            </details>
-
-            <details class="task" data-task="iterate-section-by-section">
-              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Iteruj sekcja po sekcji w Claude</span><span class="task-plus" aria-hidden="true"><svg class="disclosure-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="m8 12 8 8 8-8"/></svg></span></summary>
-              <div class="task-content">
-                <div class="task-copy">
-                  <p>Włącz <strong>Grid Guides</strong>. Gdy chcesz zmienić element, najedź na niego i skopiuj identyfikator komponentu. Przy zmianach layoutu określaj dokładnie, od której do której kolumny ma znajdować się każdy element.</p>
-                  <p>Każdy prompt powinien dotyczyć jednej sekcji, komponentu albo animacji. Możesz pracować w 2–3 wątkach równolegle, jeśli ich zakresy nie dotykają tych samych plików i elementów.</p>
-
-                  <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Przykład / kolor przycisku</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>Zaktualizuj tylko komponent `[IDENTYFIKATOR PRZYCISKU]`. Zmień jego kolor tła na `[KOLOR LUB TOKEN]` i dobierz czytelny kolor tekstu. Zachowaj istniejące wymiary, typografię oraz stany hover i focus. Nie zmieniaj pozostałych przycisków ani globalnej palety. Po zmianie sprawdź rezultat w przeglądarce.</pre>
-                  </div>
-
-                  <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Przykład / układ na gridzie</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>Zaktualizuj tylko sekcję `[IDENTYFIKATOR SEKCJI]`. Na desktopie umieść blok tekstowy w kolumnach 1–4, a główny wizual w kolumnach 5–12. Zachowaj istniejące komponenty i spacing systemu. Na mobile ustaw najpierw tekst, a następnie wizual. Nie przebudowuj pozostałych sekcji. Sprawdź layout w przeglądarce.</pre>
-                  </div>
-
-                  <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Przykład / animacja timeline’u</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>Dodaj subtelną animację do timeline’u `[IDENTYFIKATOR KOMPONENTU]`. Podczas scrollowania kolejne elementy mają pojawiać się sekwencyjnie przez zmianę opacity i przesunięcie w osi Y. Zachowaj czytelność, aktualny layout i płynność na mobile. Uwzględnij `prefers-reduced-motion` i nie zmieniaj innych komponentów. Po implementacji przetestuj efekt w przeglądarce.</pre>
-                  </div>
-
-                  <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Przykład / praca z inspiracją</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>Pracuj tylko nad sekcją `[IDENTYFIKATOR SEKCJI]`. Załączoną inspirację wykorzystaj jako referencję dla `[KOMPOZYCJI / TYPOGRAFII / MOTION / SPOSOBU POKAZANIA PRODUKTU]`, ale nie kopiuj jej dosłownie. Zachowaj komponenty, tokeny i branding Mecha. Najpierw krótko opisz plan zmiany, następnie go wdroż i sprawdź rezultat w przeglądarce.</pre>
-                  </div>
-                </div>
-                <button class="button button--done" type="button" data-done><span class="primary-label">Oznacz jako gotowe</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
-              </div>
-            </details>
-          </div>
-        </div>
-      </section>
-    </section>
-  </main>
-
-  <button class="guide-launcher" id="guide-launcher" type="button" aria-expanded="false" aria-controls="ai-guide"><span class="primary-label">AI tips</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
-
-  <aside class="guide-panel" id="ai-guide" aria-hidden="true" aria-labelledby="guide-title">
-    <div class="guide-head">
-      <div><span>Szybki poradnik</span><h2 id="guide-title">Jak sprawnie budować z AI</h2></div>
-      <button class="guide-close" id="guide-close" type="button" aria-label="Zamknij poradnik">×</button>
-    </div>
-    <div class="guide-tips">
-      <details class="tip"><summary>Pracuj maksymalnie w 2–3 wątkach</summary><p>Osobne wątki mogą dotyczyć np. copy, assetu i animacji. Nie otwieraj kilkunastu rozmów, nad którymi trudno zapanować.</p></details>
-      <details class="tip"><summary>Rozdzielaj zakresy</summary><p>Nie zlecaj dwóm agentom jednoczesnej zmiany tego samego komponentu, pliku ani wspólnych tokenów.</p></details>
-      <details class="tip"><summary>Opisuj konkretny rezultat</summary><p>Podaj identyfikator komponentu, cel zmiany, kolumny gridu i elementy, których agent nie powinien ruszać. „Zrób ładniej” nie wystarczy.</p></details>
-      <details class="tip"><summary>Dobieraj model do zadania</summary><p>Mocniejszego modelu używaj do strategii, architektury, komponentów i animacji. Szybszy wystarczy do copy, spacingu i drobnych poprawek.</p></details>
-      <details class="tip"><summary>Nie czekaj bezczynnie</summary><p>Gdy agent buduje wireframe, zbieraj inspiracje, rób screenshoty i przygotowuj assety do kolejnej iteracji.</p></details>
-      <details class="tip"><summary>Inspiracja potrzebuje instrukcji</summary><p>Wklejając referencję do Claude, napisz, czy chodzi o kompozycję, typografię, motion, asset czy zachowanie komponentu.</p></details>
-      <details class="tip"><summary>Iteruj małymi zmianami</summary><p>Przed większą zmianą upewnij się, że projekt działa. Pracuj sekcja po sekcji i po każdej zmianie sprawdzaj efekt w przeglądarce.</p></details>
-      <details class="tip"><summary>Problem techniczny? Zgłoś go</summary><p>Jeżeli projekt nie startuje, terminal pokazuje błąd albo integracja nie działa, zgłoś to prowadzącemu zamiast tracić dużą część warsztatu na diagnozę.</p></details>
-    </div>
-  </aside>
-
-  <div class="toast" id="toast" role="status" aria-live="polite">Skopiowano</div>
-
-  <script src="js/flow.js" defer></script>
-  <script src="js/timeline.js" defer></script>
 </body>
 </html>

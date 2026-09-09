@@ -14,7 +14,9 @@ Otwórz http://127.0.0.1:8080/. Przy przenoszeniu lub udostępnianiu skopiuj ca�
 
 ## Struktura
 
-- `index.html`: trzy etapy, 11 zadań, jeden krok opcjonalny oraz AI tips.
+- `index.html`: zaślepka „In prompt we trust” z datami 11.09 i 12.09; „Zaczynamy” prowadzi do `agenda.html`.
+- `intro/`: niezależna kopia stylów i zasobów z `../widelab-hackathon-main/site/`; bez stylów przewodnika.
+- `agenda.html`: dotychczasowy przewodnik — trzy etapy, 11 zadań, jeden krok opcjonalny oraz AI tips.
 - `css/tokens.css`: kopia tokenów Widehue i lokalnych definicji fontów.
 - `css/flow.css`: jasny interfejs; H1, H4 oraz 18 px dla pozostałych tekstów, w tym kodu.
 - `js/flow.js`: skrypt wyodrębniony bez zmian z prototypu.

@@ -78,3 +78,8 @@
   .hero-topbar .brand{width:96px}
   .hero-topbar .hero-description{max-width:22ch}
 }
+
+@media(min-width:761px){
+  .disclosure-icon--plus::before{width:16px;height:2px}
+  .disclosure-icon--plus::after{width:2px;height:16px}
+}

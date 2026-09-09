@@ -59,3 +59,13 @@
  @keyframes demo-drag{0%{left:15%;top:22%;opacity:0}10%{opacity:1}85%{left:40%;top:70%;opacity:1}100%{left:40%;top:70%;opacity:0}}
 }
 @media(prefers-reduced-motion:reduce){.flow-demo [data-reveal]{transition:none;transform:none}.flow-demo .demo-ghost{animation:none!important;display:none}}
+
+/* Illustrative click on the terminal URL, followed by the browser reveal. */
+.demo-local-url{position:relative;display:inline-block;max-width:100%;overflow-wrap:anywhere;color:var(--wide-purple);text-decoration:underline;text-underline-offset:3px}
+.demo-local-url::after{content:"";position:absolute;width:20px;height:24px;right:8px;top:4px;opacity:0;pointer-events:none;background:var(--demo-ink);clip-path:polygon(0 0,100% 65%,55% 67%,35% 100%)}
+.flow-demo[data-demo="open-preview"][data-phase="1"] .demo-local-url{background:var(--wide-purple-100);outline:3px solid var(--wide-purple-100)}
+.flow-demo[data-demo="open-preview"][data-phase="1"] .demo-local-url::after{animation:demo-url-click 1.8s ease both;animation-play-state:paused}
+.flow-demo.demo-running[data-demo="open-preview"][data-phase="1"] .demo-local-url::after{animation-play-state:running}
+.flow-demo .demo-preview-ready{font-size:12px;margin:16px 0 0;color:var(--demo-ink)}
+@keyframes demo-url-click{0%{opacity:0;transform:translate(15px,24px)}30%,60%{opacity:1;transform:translate(0,0)}70%{opacity:1;transform:scale(.8)}80%{opacity:1;transform:scale(1)}100%{opacity:0;transform:translate(0,0)}}
+@media(prefers-reduced-motion:reduce){.demo-local-url::after{animation:none!important;display:none}}

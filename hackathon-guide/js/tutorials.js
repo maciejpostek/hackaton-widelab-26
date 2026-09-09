@@ -8,6 +8,11 @@
   const browser = (content) => `<div class="demo-browser" data-reveal="2"><div class="demo-address">${icon('file')} localhost:4321</div><div class="demo-web">${content}</div></div>`;
   const skeleton = '<span class="demo-mini">MECHA · WIREFRAME</span><div class="demo-skeleton-title"></div><div class="demo-skeleton-line"></div><div class="demo-cards"><i></i><i></i><i></i></div>';
   const scenes = {
+    'open-preview': {
+      title: 'Adres Local → strona w przeglądarce', kind: 'preview',
+      steps: ['Znajdź w terminalu adres Local, np. http://localhost:4321/.', 'Kliknij adres lub skopiuj go do paska adresu przeglądarki.', 'Starter otwiera się w przeglądarce. Pozostaw terminal z serwerem uruchomiony.'],
+      body: '<div class="demo-terminal"><span class="demo-mini">CLAUDE · TERMINAL</span><div class="demo-command">$ npm run dev</div><div class="demo-output">Astro · ready<br><br>Local:<br><span class="demo-local-url">http://localhost:4321/</span></div><span class="demo-mini">Przykładowy adres lokalny</span></div>' + browser('<span class="demo-mini">MECHA · STARTER ASTRO</span><div class="demo-skeleton-title"></div><div class="demo-skeleton-line"></div><div class="demo-cards"><i></i><i></i><i></i></div><p class="demo-preview-ready">✓ Podgląd działa</p>')
+    },
     'open-claude': {
       title: 'Folder → projekt w Claude', kind: 'drag', steps: ['Wybierz rozpakowany folder startera.', 'Przeciągnij folder do okna Claude.', 'Sprawdź, czy Claude pracuje w folderze startera.'],
       body: file('starter-astro/', 'folder') + chat('Claude · otwórz projekt', '📎 starter-astro/', 'Projekt: starter-astro/<br><span class="demo-mini">Folder projektu jest otwarty.</span>')

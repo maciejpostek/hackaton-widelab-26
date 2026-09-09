@@ -5,3 +5,16 @@
 .poster-date--done{position:relative;color:var(--ink)}
 .poster-date--done .poster-line{display:block;text-align:left;text-decoration-line:line-through}
 .poster-date-status{position:absolute;top:100%;left:0;margin-top:12px;color:var(--wide-gray-800)}
+
+/* Continuous drawing and erasing, with paired ellipses moving in a wave. */
+.poster-rings ellipse{animation:poster-ring-loop 5s cubic-bezier(.45,0,.55,1) infinite}
+.poster-rings ellipse:nth-child(2),.poster-rings ellipse:nth-child(5){animation-delay:.3s}
+.poster-rings ellipse:nth-child(3),.poster-rings ellipse:nth-child(6){animation-delay:.6s}
+@keyframes poster-ring-loop{
+  0%{stroke-dashoffset:1}
+  50%{stroke-dashoffset:0}
+  100%{stroke-dashoffset:-1}
+}
+@media (prefers-reduced-motion:reduce){
+  .poster-rings ellipse{animation:none;stroke-dashoffset:0}
+}

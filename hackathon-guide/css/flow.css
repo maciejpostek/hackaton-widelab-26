@@ -648,7 +648,7 @@ pre { padding: 28px; }
   margin: 0;
   width: 100%;
   letter-spacing: inherit;
-  color: var(--wide-gray-700);
+  color: var(--wide-gray-500);
   white-space: normal;
 }
 

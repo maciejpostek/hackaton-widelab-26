@@ -6,18 +6,20 @@
 .poster-date--done .poster-line{display:block;text-align:left;text-decoration-line:line-through}
 .poster-date-status{position:absolute;top:100%;left:0;margin-top:12px;color:var(--wide-gray-800)}
 
-/* Independent rhythms: alternating directions, durations, easing and phases. */
-.poster-rings ellipse{animation:poster-ring-loop 6.4s cubic-bezier(.37,0,.63,1) infinite;transform-box:fill-box;transform-origin:center}
-.poster-rings ellipse:nth-child(1){animation-duration:6.4s;animation-delay:0s;animation-timing-function:cubic-bezier(.37,0,.63,1)}
-.poster-rings ellipse:nth-child(2){animation-duration:7.3s;animation-delay:-1.4s;animation-direction:reverse;animation-timing-function:cubic-bezier(.55,0,.3,1);transform:rotate(180deg)}
-.poster-rings ellipse:nth-child(3){animation-duration:5.8s;animation-delay:-2.6s;animation-timing-function:cubic-bezier(.25,0,.65,1)}
-.poster-rings ellipse:nth-child(4){animation-duration:7.7s;animation-delay:-.8s;animation-direction:reverse;animation-timing-function:cubic-bezier(.42,0,.32,1)}
-.poster-rings ellipse:nth-child(5){animation-duration:6.1s;animation-delay:-3.1s;animation-timing-function:cubic-bezier(.3,0,.58,1);transform:rotate(180deg)}
-.poster-rings ellipse:nth-child(6){animation-duration:6.9s;animation-delay:-1.9s;animation-direction:reverse;animation-timing-function:cubic-bezier(.48,0,.7,1)}
+/* Six-second movement followed by an eighteen-second fully drawn rest.
+   Starts are spaced four seconds apart: at most two ellipses move at once. */
+.poster-rings ellipse{--ring-direction:1;stroke-dashoffset:0;animation:poster-ring-loop 24s cubic-bezier(.37,0,.63,1) infinite;transform-box:fill-box;transform-origin:center}
+.poster-rings ellipse:nth-child(1){animation-delay:0s;animation-timing-function:cubic-bezier(.37,0,.63,1)}
+.poster-rings ellipse:nth-child(2){--ring-direction:-1;animation-delay:8s;animation-timing-function:cubic-bezier(.55,0,.3,1);transform:rotate(180deg)}
+.poster-rings ellipse:nth-child(3){animation-delay:16s;animation-timing-function:cubic-bezier(.25,0,.65,1)}
+.poster-rings ellipse:nth-child(4){--ring-direction:-1;animation-delay:4s;animation-timing-function:cubic-bezier(.42,0,.32,1)}
+.poster-rings ellipse:nth-child(5){animation-delay:12s;animation-timing-function:cubic-bezier(.3,0,.58,1);transform:rotate(180deg)}
+.poster-rings ellipse:nth-child(6){--ring-direction:-1;animation-delay:20s;animation-timing-function:cubic-bezier(.48,0,.7,1)}
 @keyframes poster-ring-loop{
-  0%{stroke-dashoffset:1}
-  46%{stroke-dashoffset:0}
-  100%{stroke-dashoffset:-1}
+  0%{stroke-dashoffset:0}
+  12.5%{stroke-dashoffset:var(--ring-direction)}
+  12.5001%{stroke-dashoffset:calc(-1 * var(--ring-direction))}
+  25%,100%{stroke-dashoffset:0}
 }
 @media (prefers-reduced-motion:reduce){
   .poster-rings ellipse{animation:none;stroke-dashoffset:0}

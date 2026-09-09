@@ -12,14 +12,15 @@
     gsap.set(words, { visibility: 'visible' });
     gsap.set(first, { yPercent: 120 });
     gsap.set(second, { yPercent: 120 });
+    const revealDuration = 1.4;
     const timeline = gsap.timeline({ repeat: -1 });
-    timeline.to(first, { yPercent: 0, duration: 1.1, ease: 'power3.out' }, 0)
-      .to(first, { yPercent: -120, duration: 1.1, ease: 'power3.inOut' }, 10)
-      .fromTo(second, { yPercent: 120 }, { yPercent: 0, duration: 1.1, ease: 'power3.inOut', immediateRender: false }, 10)
-      .to(second, { yPercent: -120, duration: 1.1, ease: 'power3.inOut' }, 20)
-      .fromTo(first, { yPercent: 120 }, { yPercent: 0, duration: 1.1, ease: 'power3.inOut', immediateRender: false }, 20);
+    timeline.to(first, { yPercent: 0, duration: revealDuration, ease: 'power3.out' }, 0)
+      .to(first, { yPercent: -120, duration: revealDuration, ease: 'power3.inOut' }, 10)
+      .fromTo(second, { yPercent: 120 }, { yPercent: 0, duration: revealDuration, ease: 'power3.inOut', immediateRender: false }, 10)
+      .to(second, { yPercent: -120, duration: revealDuration, ease: 'power3.inOut' }, 20)
+      .fromTo(first, { yPercent: 120 }, { yPercent: 0, duration: revealDuration, ease: 'power3.inOut', immediateRender: false }, 20);
     // Repeat the 20-second alternating cycle without replaying the initial reveal.
-    timeline.eventCallback('onRepeat', () => timeline.time(1.1));
+    timeline.eventCallback('onRepeat', () => timeline.time(revealDuration));
     const visibility = () => { timeline.paused(document.hidden); };
     document.addEventListener('visibilitychange', visibility);
     visibility();

@@ -1,0 +1,20 @@
+/* Primitive values extracted from widehue.webflow/css/widehue.css :root. */
+@font-face{font-family:'Sequel Sans';src:url('../assets/fonts/SequelSans-RomanDisp.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Sequel Sans';src:url('../assets/fonts/SequelSans-MediumDisp.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Britti Sans';src:url('../assets/fonts/BrittiSans-Regular.woff') format('woff');font-weight:400;font-display:swap}
+:root{
+ --wide-black:#151515;--wide-white:#fff;--wide-purple:#4734f7;--wide-yellow:#e6ff27;
+ --wide-gray-50:#fbfbfb;--wide-gray-100:#f6f6f6;--wide-gray-200:#ebebeb;--wide-gray-300:#d9d9d9;--wide-gray-400:#b3b3b3;--wide-gray-500:#a3a3a3;--wide-gray-600:#8e8e8e;--wide-gray-700:#7a7a7a;--wide-gray-800:#656565;--wide-gray-900:#464646;--wide-purple-100:#edebfe;
+ --font-brand:'Sequel Sans',Arial,sans-serif;--font-secondary:'Britti Sans',Arial,sans-serif;--font-code:ui-monospace,SFMono-Regular,Consolas,monospace;
+ --text-h1:6.5rem;--text-h2:5rem;--text-h3:3rem;--text-h4:2rem;--text-h5:1.5rem;--text-h6:1.125rem;
+ /* Curated spacing API; values observed throughout the source, not a source token scale. */
+ --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-24:6rem;--space-32:8rem;
+ --radius-sm:.375rem;--radius-md:.75rem;--radius-lg:1rem;--radius-pill:999px;--container:90rem;--gutter:2.5rem;--duration:200ms;
+}
+/* Semantic modes are an extension built from the original brand palette. */
+:root,[data-theme="light"]{color-scheme:light;--color-bg:var(--wide-white);--color-surface:var(--wide-gray-100);--color-text:var(--wide-black);--color-muted:var(--wide-gray-800);--color-border:var(--wide-gray-300);--color-accent:var(--wide-purple);--color-on-accent:var(--wide-white);--color-inverse:var(--wide-black);--color-on-inverse:var(--wide-white);--color-focus:var(--wide-purple)}
+[data-theme="dark"]{color-scheme:dark;--color-bg:var(--wide-black);--color-surface:#222;--color-text:var(--wide-white);--color-muted:var(--wide-gray-400);--color-border:var(--wide-gray-900);--color-accent:var(--wide-yellow);--color-on-accent:var(--wide-black);--color-inverse:var(--wide-white);--color-on-inverse:var(--wide-black);--color-focus:var(--wide-yellow)}
+[data-theme="purple"]{color-scheme:dark;--color-bg:var(--wide-purple);--color-surface:#392ac6;--color-text:var(--wide-white);--color-muted:var(--wide-purple-100);--color-border:#8e81fa;--color-accent:var(--wide-yellow);--color-on-accent:var(--wide-black);--color-inverse:var(--wide-white);--color-on-inverse:var(--wide-black);--color-focus:var(--wide-yellow)}
+[data-theme="yellow"]{color-scheme:light;--color-bg:var(--wide-yellow);--color-surface:#d5ec24;--color-text:var(--wide-black);--color-muted:var(--wide-gray-900);--color-border:#899817;--color-accent:var(--wide-purple);--color-on-accent:var(--wide-white);--color-inverse:var(--wide-black);--color-on-inverse:var(--wide-white);--color-focus:var(--wide-purple)}
+@media(max-width:991px){:root{--text-h1:5rem;--text-h2:2.5rem;--text-h3:2rem;--text-h4:1.5rem;--gutter:1.75rem}}
+@media(max-width:600px){:root{--text-h1:3.25rem;--gutter:1.25rem}}

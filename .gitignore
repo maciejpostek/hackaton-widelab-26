@@ -1,0 +1,15 @@
+# macOS metadata
+.DS_Store
+__MACOSX/
+
+# Local secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local dependencies and build output
+node_modules/
+.astro/
+dist/

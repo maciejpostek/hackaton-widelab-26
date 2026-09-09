@@ -1,0 +1,62 @@
+/* Full viewport composition. Fixed 32 px side insets at every breakpoint. */
+.event-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 32px;
+  overflow: hidden;
+}
+.hero-top,.hero-claim { position: relative; z-index: 1; }
+.brand { display: block; width: min(33.5vw, 100%); }
+.brand svg { width: 100%; height: auto; }
+.hero-heading { margin-top: clamp(48px,8vh,96px); }
+.hero-heading h1 {
+  font-size: clamp(40px,5.6vw,160px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.01em;
+}
+.event-subtitle {
+  margin-top: 20px;
+  font-size: clamp(16px,1.4vw,32px);
+  line-height: 1.333;
+  letter-spacing: .01em;
+}
+.hero-claim {
+  font-weight: 400;
+  margin-top: 64px;
+  font-size: clamp(24px,3vw,72px);
+  line-height: 1.1;
+  letter-spacing: -.01em;
+}
+.hero-globe {
+  position: absolute;
+  z-index: 0;
+  right: 32px;
+  bottom: 24px;
+  width: min(57vw,76svh);
+  color: var(--wide-purple);
+  pointer-events: none;
+}
+.hero-globe svg { display: block; width: 100%; height: auto; }
+@media (max-width:700px) {
+  .brand { width: min(66vw, 100%); }
+  .hero-heading { margin-top: 48px; }
+  .hero-heading h1 { font-size: clamp(28px,7.6vw,52px); }
+  .event-subtitle { max-width: 29ch; margin-top: 16px; font-size: 16px; }
+  .hero-globe { width: min(calc(100vw - 64px),43svh,max(80px,calc(100svh - 400px)) ); right: 32px; bottom: 136px; }
+  .hero-claim { margin-top: calc(min(100vw - 64px,43svh,max(80px,100svh - 400px)) + 80px); font-size: 28px; }
+}
+@media (max-height:500px) and (min-width:701px) {
+  .hero-heading { margin-top: 32px; }
+  .hero-heading h1 { font-size: 8vw; }
+  .hero-claim { margin-top: 40px; font-size: 24px; }
+  .hero-globe { width: 48svh; }
+}
+
+.hero-claim-secondary { color: var(--wide-gray-500); }

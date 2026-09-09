@@ -1,0 +1,981 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Hackathon 2026 — flow solo</title>
+  <style>
+    :root {
+      --bg: #0b0c0a;
+      --surface: #11120f;
+      --surface-2: #171914;
+      --text: #f2f3ec;
+      --muted: #9b9e91;
+      --line: #30332b;
+      --line-strong: #4b5042;
+      --accent: #dfff55;
+      --accent-ink: #101108;
+      --success: #77e59b;
+      --success-bg: #173a23;
+      --warning: #f4d36a;
+      --radius: 2px;
+      --page: 1160px;
+      --focus: 0 0 0 3px rgba(223, 255, 85, .35);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      min-width: 320px;
+    }
+
+    button, a { font: inherit; }
+
+    button:focus-visible,
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 0;
+      box-shadow: var(--focus);
+    }
+
+    .page {
+      margin: 0 auto;
+      max-width: var(--page);
+      padding: 64px 32px 120px;
+    }
+
+    .hero {
+      align-items: flex-end;
+      border-bottom: 1px solid var(--line-strong);
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 30px;
+    }
+
+    h1 {
+      font-size: clamp(64px, 9vw, 132px);
+      font-weight: 720;
+      letter-spacing: -.075em;
+      line-height: .82;
+      margin: 0;
+    }
+
+    .hero-meta,
+    .eyebrow,
+    .snippet-label,
+    .tag {
+      font-size: 11px;
+      font-weight: 760;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .hero-meta { color: var(--accent); padding-bottom: 5px; }
+
+    .timeline {
+      counter-reset: stage;
+      margin-top: 44px;
+      position: relative;
+    }
+
+    .timeline::before {
+      background: var(--line);
+      bottom: 0;
+      content: "";
+      left: 27px;
+      position: absolute;
+      top: 28px;
+      width: 1px;
+    }
+
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+
+    .stage {
+      border-bottom: 1px solid var(--line-strong);
+      counter-increment: stage;
+      position: relative;
+    }
+
+    .stage:first-child { border-top: 1px solid var(--line-strong); }
+
+    .stage-summary {
+      align-items: center;
+      cursor: pointer;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 56px minmax(0, 1fr) 42px;
+      min-height: 146px;
+      padding: 24px 0;
+    }
+
+    .stage-summary:hover .stage-title { color: var(--accent); }
+
+    .stage-number {
+      align-items: center;
+      background: var(--bg);
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      display: flex;
+      font-size: 14px;
+      font-weight: 760;
+      height: 56px;
+      justify-content: center;
+      position: relative;
+      width: 56px;
+      z-index: 1;
+    }
+
+    .stage-number::before { content: counter(stage, decimal-leading-zero); }
+
+    .eyebrow {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .stage-title {
+      display: block;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 650;
+      letter-spacing: -.045em;
+      line-height: 1;
+      transition: color 180ms ease;
+    }
+
+    .stage-status {
+      background: var(--success-bg);
+      color: var(--success);
+      display: none;
+      letter-spacing: .04em;
+      margin-left: 8px;
+      padding: 5px 7px;
+    }
+
+    .stage.is-complete .stage-number {
+      background: var(--success-bg);
+      border-color: var(--success);
+      color: var(--success);
+    }
+
+    .stage.is-complete .stage-number::before { content: "✓"; font-size: 19px; }
+    .stage.is-complete .stage-status { display: inline-block; }
+
+    .plus {
+      color: var(--accent);
+      font-size: 34px;
+      font-weight: 300;
+      justify-self: center;
+      transition: transform 180ms ease;
+    }
+
+    .stage[open] > .stage-summary .plus { transform: rotate(45deg); }
+
+    .stage-body {
+      padding: 0 0 56px 80px;
+    }
+
+    .stage-lead {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.55;
+      margin: 0 0 28px;
+      max-width: 760px;
+    }
+
+    .tasks { border-top: 1px solid var(--line); }
+
+    .task { border-bottom: 1px solid var(--line); }
+
+    .task-summary {
+      align-items: center;
+      cursor: pointer;
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 24px minmax(0, 1fr) auto 28px;
+      min-height: 68px;
+      padding: 12px 14px 12px 0;
+    }
+
+    .task-summary:hover .task-title { color: var(--accent); }
+
+    .task-check {
+      border: 1px solid var(--line-strong);
+      display: block;
+      height: 18px;
+      position: relative;
+      width: 18px;
+    }
+
+    .task.is-done .task-check {
+      background: var(--success-bg);
+      border-color: var(--success);
+    }
+
+    .task.is-done .task-check::after {
+      color: var(--success);
+      content: "✓";
+      font-size: 12px;
+      font-weight: 800;
+      left: 3px;
+      position: absolute;
+      top: 0;
+    }
+
+    .task-title { font-size: 16px; font-weight: 680; transition: color 180ms ease; }
+
+    .task-plus {
+      color: var(--muted);
+      font-size: 20px;
+      justify-self: end;
+      transition: transform 180ms ease;
+    }
+
+    .task[open] > .task-summary .task-plus { transform: rotate(45deg); }
+
+    .tag {
+      border: 1px solid currentColor;
+      color: var(--warning);
+      padding: 5px 7px;
+      white-space: nowrap;
+    }
+
+    .task-content {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: minmax(0, 1fr) auto;
+      padding: 12px 14px 28px 40px;
+    }
+
+    .task-copy { max-width: 800px; min-width: 0; }
+    .task-copy p { color: var(--muted); line-height: 1.6; margin: 0 0 14px; }
+    .task-copy p:last-child { margin-bottom: 0; }
+    .task-copy strong { color: var(--text); }
+
+    .button {
+      align-items: center;
+      background: transparent;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      color: var(--text);
+      cursor: pointer;
+      display: inline-flex;
+      font-size: 12px;
+      font-weight: 720;
+      justify-content: center;
+      min-height: 38px;
+      padding: 9px 12px;
+      text-decoration: none;
+      transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+    }
+
+    .button:hover { border-color: var(--accent); color: var(--accent); }
+    .button--accent { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+    .button--accent:hover { background: var(--text); border-color: var(--text); color: var(--bg); }
+    .button--done { align-self: start; white-space: nowrap; }
+    .task.is-done .button--done { border-color: var(--success); color: var(--success); }
+    .task[data-optional="true"].is-done .button--done { border-color: var(--warning); color: var(--warning); }
+
+    .links { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0; }
+
+    [aria-disabled="true"] { cursor: not-allowed; opacity: .58; }
+
+    .snippet {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      margin-top: 14px;
+      min-width: 0;
+    }
+
+    .snippet-head {
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      min-height: 48px;
+      padding: 7px 9px 7px 15px;
+    }
+
+    .snippet-label { color: var(--muted); }
+
+    pre {
+      color: #dfe5ce;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 12px;
+      line-height: 1.65;
+      margin: 0;
+      overflow-x: auto;
+      padding: 18px;
+      white-space: pre-wrap;
+    }
+
+    .notice {
+      border-left: 2px solid var(--accent);
+      margin-top: 20px !important;
+      padding: 2px 0 2px 16px;
+    }
+
+    .link-list { border-top: 1px solid var(--line); margin: 20px 0; }
+
+    .link-row {
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      color: var(--text);
+      display: grid;
+      gap: 16px;
+      grid-template-columns: minmax(0, 1fr) auto 36px;
+      min-height: 72px;
+      padding: 12px 14px;
+      text-decoration: none;
+    }
+
+    .link-row:not([aria-disabled="true"]):hover { background: var(--surface-2); }
+    .link-platform { min-width: 0; }
+    .link-platform strong { display: block; font-size: 15px; }
+    .link-platform small { color: var(--muted); display: block; font-size: 12px; margin-top: 4px; }
+    .link-tag { border: 1px solid var(--line-strong); color: var(--muted); font-size: 10px; letter-spacing: .08em; padding: 5px 7px; text-transform: uppercase; }
+    .link-arrow { color: var(--accent); font-size: 18px; justify-self: end; }
+
+    .load-more-row {
+      align-items: center;
+      display: flex;
+      gap: 16px;
+      justify-content: space-between;
+      margin: -4px 0 20px;
+    }
+
+    .source-count {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .load-more-row .button { min-width: 148px; }
+
+    .guide-launcher {
+      align-items: center;
+      background: var(--accent);
+      border: 0;
+      bottom: 22px;
+      color: var(--accent-ink);
+      cursor: pointer;
+      display: flex;
+      font-size: 13px;
+      font-weight: 800;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 17px;
+      position: fixed;
+      right: 22px;
+      z-index: 20;
+    }
+
+    .guide-launcher-icon {
+      align-items: center;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      display: flex;
+      height: 20px;
+      justify-content: center;
+      width: 20px;
+    }
+
+    .guide-panel {
+      background: var(--surface);
+      border: 1px solid var(--line-strong);
+      bottom: 82px;
+      max-height: min(620px, calc(100vh - 110px));
+      opacity: 0;
+      overflow: auto;
+      pointer-events: none;
+      position: fixed;
+      right: 22px;
+      transform: translateY(12px);
+      transition: opacity 180ms ease, transform 180ms ease;
+      width: min(390px, calc(100vw - 44px));
+      z-index: 19;
+    }
+
+    .guide-panel.is-open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+    .guide-head {
+      align-items: flex-start;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      padding: 18px;
+    }
+
+    .guide-head span { color: var(--muted); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+    .guide-head h2 { font-size: 20px; letter-spacing: -.025em; margin: 5px 0 0; }
+
+    .guide-close {
+      background: transparent;
+      border: 0;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 26px;
+      height: 32px;
+      width: 32px;
+    }
+
+    .tip + .tip { border-top: 1px solid var(--line); }
+    .tip summary { align-items: center; cursor: pointer; display: flex; font-size: 14px; font-weight: 680; gap: 14px; justify-content: space-between; padding: 16px 18px; }
+    .tip summary::after { color: var(--accent); content: "+"; font-size: 18px; font-weight: 400; }
+    .tip[open] summary::after { content: "−"; }
+    .tip p { color: var(--muted); font-size: 13px; line-height: 1.55; margin: 0; padding: 0 38px 17px 18px; }
+
+    .toast {
+      background: var(--text);
+      bottom: 28px;
+      color: var(--bg);
+      font-size: 13px;
+      font-weight: 750;
+      left: 50%;
+      opacity: 0;
+      padding: 11px 15px;
+      pointer-events: none;
+      position: fixed;
+      transform: translate(-50%, 10px);
+      transition: opacity 160ms ease, transform 160ms ease;
+      z-index: 30;
+    }
+
+    .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (max-width: 760px) {
+      .page { padding: 36px 18px 100px; }
+      .hero { align-items: flex-start; flex-direction: column; gap: 24px; }
+      .hero-meta { padding: 0; }
+      .stage-summary { gap: 14px; grid-template-columns: 46px minmax(0, 1fr) 30px; min-height: 120px; }
+      .stage-number { height: 46px; width: 46px; }
+      .stage-body { padding: 0 0 40px 60px; }
+      .timeline::before { left: 22px; }
+      .task-summary { gap: 10px; grid-template-columns: 22px minmax(0, 1fr) auto 24px; }
+      .task-content { grid-template-columns: 1fr; padding: 14px 8px 24px 32px; }
+      .button--done { justify-self: start; }
+      .tag { font-size: 9px; }
+      .link-row { gap: 10px; padding-inline: 10px; }
+      .link-platform small { display: none; }
+      .guide-launcher { bottom: 14px; right: 14px; }
+      .guide-panel { bottom: 72px; max-height: calc(100svh - 92px); right: 14px; width: calc(100vw - 28px); }
+    }
+
+    @media (max-width: 430px) {
+      h1 { font-size: 58px; }
+      .stage-title { font-size: 25px; }
+      .stage-summary { grid-template-columns: 38px minmax(0, 1fr) 28px; }
+      .stage-number { height: 38px; width: 38px; }
+      .stage-body { padding-left: 0; }
+      .timeline::before { display: none; }
+      .task-summary { grid-template-columns: 22px minmax(0, 1fr) 24px; }
+      .task-summary .tag { grid-column: 2; justify-self: start; }
+      .task-summary .task-plus { grid-column: 3; grid-row: 1; }
+      pre { font-size: 11px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <h1>Hackathon<br>2026</h1>
+      <span class="hero-meta">3 kroki / 120 minut</span>
+    </header>
+
+    <section class="timeline" aria-label="Proces hackathonu">
+      <details class="stage" id="krok-1" open>
+        <summary class="stage-summary">
+          <span class="stage-number" aria-hidden="true"></span>
+          <span><span class="eyebrow">Setup / około 10 minut <span class="stage-status">✓ Gotowe</span></span><span class="stage-title">Przygotuj środowisko</span></span>
+          <span class="plus" aria-hidden="true">+</span>
+        </summary>
+        <div class="stage-body">
+          <p class="stage-lead">Pobierz starter, otwórz właściwy folder w Claude, przygotuj Node.js i uruchom lokalny podgląd. Figmę podłącz tylko wtedy, gdy chcesz z niej importować materiały.</p>
+          <div class="tasks">
+            <details class="task" data-task="download-starter">
+              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Pobierz i rozpakuj starter Astro</span><span class="task-plus" aria-hidden="true">+</span></summary>
+              <div class="task-content">
+                <div class="task-copy">
+                  <p>Pobierz paczkę, rozpakuj ją w łatwym do znalezienia miejscu i nazwij folder według produktu, np. <strong>nazwa-produktu-landing</strong>.</p>
+                  <div class="links"><a class="button button--accent" href="#" aria-disabled="true" data-missing-link="astro-starter">Pobierz starter — link do uzupełnienia</a></div>
+                </div>
+                <button class="button button--done" type="button" data-done>Oznacz jako gotowe</button>
+              </div>
+            </details>
+
+            <details class="task" data-task="open-claude">
+              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Otwórz Claude i wskaż folder projektu</span><span class="task-plus" aria-hidden="true">+</span></summary>
+              <div class="task-content">
+                <div class="task-copy"><p>Uruchom Claude i wskaż dokładnie folder, w którym znajduje się rozpakowany starter Astro. Przed każdym promptem upewnij się, że pracujesz w prawidłowym projekcie.</p></div>
+                <button class="button button--done" type="button" data-done>Oznacz jako gotowe</button>
+              </div>
+            </details>
+
+            <details class="task" data-task="install-node">
+              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Otwórz terminal w Claude i zainstaluj Node.js</span><span class="task-plus" aria-hidden="true">+</span></summary>
+              <div class="task-content">
+                <div class="task-copy">
+                  <p>Po otwarciu projektu uruchom terminal w prawym górnym rogu Claude. Możesz też użyć aplikacji <strong>Terminal</strong> na swoim komputerze — wtedy najpierw przejdź do folderu projektu.</p>
+                  <p>Wybierz polecenie odpowiednie dla swojego systemu.</p>
+                  <div class="snippet">
+                    <div class="snippet-head"><span class="snippet-label">macOS / Homebrew</span><button class="button copy" type="button">Kopiuj</button></div>
+                    <pre>brew install node</pre>
+                  </div>
+                  <div class="snippet">
+                    <div class="snippet-head"><span class="snippet-label">Windows / winget</span><button class="button copy" type="button">Kopiuj</button></div>
+                    <pre>winget install OpenJS.NodeJS.LTS</pre>
+                  </div>
+                  <div class="snippet">
+                    <div class="snippet-head"><span class="snippet-label">Sprawdź instalację</span><button class="button copy" type="button">Kopiuj</button></div>
+                    <pre>node --version
+npm --version</pre>
+                  </div>
+                  <p>Poprawny wynik pokazuje numer wersji Node.js rozpoczynający się od <strong>v</strong> oraz numer npm. Jeżeli polecenie nie istnieje albo nie zwraca numerów wersji, zgłoś problem prowadzącemu.</p>
+                </div>
+                <button class="button button--done" type="button" data-done>Oznacz jako gotowe</button>
+              </div>
+            </details>
+
+            <details class="task" data-task="connect-figma" data-optional="true">
+              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Połącz Figmę z Claude przez plugin / MCP</span><span class="tag">Opcjonalne</span><span class="task-plus" aria-hidden="true">+</span></summary>
+              <div class="task-content">
+                <div class="task-copy">
+                  <p>Zrób to tylko wtedy, gdy chcesz przenosić z Figmy elementy wizualne, ikony, assety lub fragmenty designu. W Claude otwórz <strong>Plugins</strong>, wybierz <strong>Figma</strong> i przejdź autoryzację na koncie, na którym znajduje się właściwy projekt.</p>
+                  <p>Jeżeli nie potrzebujesz Figmy albo integracja nie działa, pomiń ten punkt. Asset możesz wyeksportować ręcznie i umieścić bezpośrednio w folderze projektu.</p>
+                </div>
+                <button class="button button--done" type="button" data-done>Oznacz opcjonalnie</button>
+              </div>
+            </details>
+
+            <details class="task" data-task="start-server">
+              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Uruchom projekt w terminalu</span><span class="task-plus" aria-hidden="true">+</span></summary>
+              <div class="task-content">
+                <div class="task-copy">
+                  <p>W terminalu otwartym dla folderu projektu wpisz poniższe polecenie i naciśnij Enter.</p>
+                  <div class="snippet">
+                    <div class="snippet-head"><span class="snippet-label">Terminal / uruchomienie projektu</span><button class="button copy" type="button">Kopiuj</button></div>
+                    <pre>npm run dev</pre>
+                  </div>
+                  <p>Po chwili terminal powinien wyświetlić odpowiedź podobną do tej:</p>
+                  <div class="snippet">
+                    <div class="snippet-head"><span class="snippet-label">Przykładowa odpowiedź Astro</span></div>
+                    <pre>astro v5.x.x ready in 320 ms
+
+┃ Local    http://localhost:4321/
+┃ Network  use --host to expose</pre>
+                  </div>
+                  <p>Skopiuj adres widoczny przy <strong>Local</strong>, np. <strong>http://localhost:4321/</strong>. Jeżeli terminal pokaże inny port, użyj adresu wyświetlonego u siebie.</p>
+                </div>
+                <button class="button button--done" type="button" data-done>Oznacz jako gotowe</button>
+              </div>
+            </details>
+
+            <details class="task" data-task="open-preview">
+              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Otwórz starter w przeglądarce</span><span class="task-plus" aria-hidden="true">+</span></summary>
+              <div class="task-content">
+                <div class="task-copy"><p>Wklej lokalny adres w pasku przeglądarki i sprawdź, czy strona startowa działa. Nie zamykaj terminala z uruchomionym serwerem. Gdy widzisz podgląd, przejdź do kroku 2.</p></div>
+                <button class="button button--done" type="button" data-done>Oznacz jako gotowe</button>
+              </div>
+            </details>
+          </div>
+        </div>
+      </details>
+
+      <details class="stage" id="krok-2">
+        <summary class="stage-summary">
+          <span class="stage-number" aria-hidden="true"></span>
+          <span><span class="eyebrow">Strategia i wireframe / około 20 minut <span class="stage-status">✓ Gotowe</span></span><span class="stage-title">Zaimportuj strategię i zbuduj wireframe</span></span>
+          <span class="plus" aria-hidden="true">+</span>
+        </summary>
+        <div class="stage-body">
+          <p class="stage-lead">Najpierw przekaż agentowi kontekst produktu. Następnie poproś o propozycję 2–3 sekcji, wybierz kierunek i dopiero wtedy zleć budowę strukturalnej bazy strony.</p>
+          <div class="tasks">
+            <details class="task" data-task="import-strategy">
+              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Załącz strategię w nowym wątku</span><span class="task-plus" aria-hidden="true">+</span></summary>
+              <div class="task-content">
+                <div class="task-copy">
+                  <p>Otwórz nowy wątek w Claude, załącz Markdown ze strategią produktu i wklej poniższy prompt. Agent ma uzupełnić właściwe pliki startera, ale jeszcze niczego nie projektować.</p>
+                  <div class="links"><a class="button" href="#" aria-disabled="true" data-missing-link="strategy-markdown">Pobierz strategię — link do uzupełnienia</a></div>
+                  <div class="snippet">
+                    <div class="snippet-head"><span class="snippet-label">Prompt 01 / import strategii</span><button class="button copy" type="button">Kopiuj</button></div>
+                    <pre>Przeczytaj załączony plik Markdown ze strategią produktu przygotowanego podczas pierwszego dnia. Najpierw zapoznaj się z dokumentacją startera i regułami dotyczącymi plików strategicznych.
+
+Przenieś istotny kontekst produktu do właściwych plików w projekcie. Oddziel potwierdzone fakty, założenia i brakujące informacje. Nie twórz jeszcze interfejsu ani nowych komponentów.
+
+Na końcu podsumuj, jakie pliki utworzyłeś lub zmieniłeś, oraz wskaż luki, które mogą wpłynąć na komunikację landing page’a.</pre>
+                  </div>
+                </div>
+                <button class="button button--done" type="button" data-done>Oznacz jako gotowe</button>
+              </div>
+            </details>
+
+            <details class="task" data-task="propose-architecture">
+              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Poproś o propozycję architektury informacji</span><span class="task-plus" aria-hidden="true">+</span></summary>
+              <div class="task-content">
+                <div class="task-copy">
+                  <p>Poproś AI o krótki plan. Na tym etapie wybierasz, co landing page ma powiedzieć — agent nie powinien jeszcze pisać kodu.</p>
+                  <div class="snippet">
+                    <div class="snippet-head"><span class="snippet-label">Prompt 02 / propozycja sekcji</span><button class="button copy" type="button">Kopiuj</button></div>
+                    <pre>Na podstawie plików strategicznych produktu zaproponuj architekturę informacji dla landing page’a składającego się z 2–3 sekcji. Sekcje mają jasno komunikować wartość produktu i promować go właściwemu odbiorcy.
+
+Dla każdej sekcji podaj:
+1. cel komunikacyjny,
+2. jeden główny komunikat,
+3. potrzebną treść, dowód lub asset,
+4. sposób przejścia do kolejnej sekcji.
+
+Przedstaw wynik jako krótką, numerowaną listę. Nie pisz kodu, nie buduj jeszcze strony i nie dodawaj niepotwierdzonych informacji.</pre>
+                  </div>
+                </div>
+                <button class="button button--done" type="button" data-done>Oznacz jako gotowe</button>
+              </div>
+            </details>
+
+            <details class="task" data-task="build-wireframe">
+              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Zleć budowę wireframe’u</span><span class="task-plus" aria-hidden="true">+</span></summary>
+              <div class="task-content">
+                <div class="task-copy">
+                  <p>Wklej wybrany i ewentualnie poprawiony wariant architektury. Agent ma zbudować działającą bazę, którą dopracujesz wizualnie w kolejnym kroku.</p>
+                  <div class="snippet">
+                    <div class="snippet-head"><span class="snippet-label">Prompt 03 / budowa wireframe’u</span><button class="button copy" type="button">Kopiuj</button></div>
+                    <pre>Zbuduj wireframe landing page’a na podstawie poniższej, zatwierdzonej architektury informacji:
+
+[WKLEJ TUTAJ WYBRANY PLAN 2–3 SEKCJI]
+
+Stwórz strukturalną bazę tych sekcji. Korzystaj z istniejących komponentów, tokenów, assetów, brandingu i agentic rules startera Mecha. Zachowaj obecny system zamiast tworzyć równoległe style. Użyj treści wynikających z plików strategicznych i nie wymyślaj brakujących faktów.
+
+Na tym etapie skup się na hierarchii, układzie i przepływie informacji — bez pełnego dopracowania wizualnego. Po implementacji sprawdź działanie strony w przeglądarce i podsumuj zmienione pliki.</pre>
+                  </div>
+                  <p class="notice"><strong>To zadanie może potrwać kilka lub kilkanaście minut.</strong> Nie czekaj bezczynnie — przejdź od razu do kroku 3 i zacznij zbierać inspiracje.</p>
+                </div>
+                <button class="button button--done" type="button" data-done>Oznacz jako gotowe</button>
+              </div>
+            </details>
+          </div>
+        </div>
+      </details>
+
+      <details class="stage" id="krok-3">
+        <summary class="stage-summary">
+          <span class="stage-number" aria-hidden="true"></span>
+          <span><span class="eyebrow">Praca kreatywna / główny blok <span class="stage-status">✓ Gotowe</span></span><span class="stage-title">Znajdź inspiracje i iteruj</span></span>
+          <span class="plus" aria-hidden="true">+</span>
+        </summary>
+        <div class="stage-body">
+          <p class="stage-lead">W czasie budowy wireframe’u zbierz kierunek wizualny. Gdy baza będzie gotowa, rozwijaj ją małymi zmianami zgodnie z workflow startera pokazanym przez prowadzącego w kroku 0.</p>
+          <div class="tasks">
+            <details class="task" data-task="find-and-collect-inspiration">
+              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Znajdź i zbierz inspiracje</span><span class="task-plus" aria-hidden="true">+</span></summary>
+              <div class="task-content">
+                <div class="task-copy">
+                  <p>Szukaj konkretnych rozwiązań: kompozycji sekcji, sposobu pokazania produktu, zachowania typografii, animacji albo gotowej techniki. Otwieraj przydatne strony w nowych kartach, rób screenshoty i zapisuj assety oraz linki w jednym lokalnym folderze.</p>
+                  <div class="link-list" id="inspiration-list" aria-live="polite"></div>
+                  <div class="load-more-row">
+                    <span class="source-count" id="inspiration-count"></span>
+                    <button class="button" id="load-more-inspiration" type="button">Load more</button>
+                  </div>
+                  <p>Gdy wireframe będzie gotowy, załącz wybrane materiały do Claude i opisz, <strong>jaki efekt chcesz uzyskać</strong>: kompozycję, typografię, motion, asset albo sposób prezentacji produktu. Nie proś o bezpośrednie kopiowanie całej strony.</p>
+                  <p>Lista pochodzi z kategorii <strong>Kuratela</strong> w bazie Design Resources. Wpis bez poprawnego adresu pozostaje oznaczony jako link do uzupełnienia.</p>
+                </div>
+                <button class="button button--done" type="button" data-done>Oznacz jako gotowe</button>
+              </div>
+            </details>
+
+            <details class="task" data-task="iterate-section-by-section">
+              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Iteruj sekcja po sekcji w Claude</span><span class="task-plus" aria-hidden="true">+</span></summary>
+              <div class="task-content">
+                <div class="task-copy">
+                  <p>Włącz <strong>Grid Guides</strong>. Gdy chcesz zmienić element, najedź na niego i skopiuj identyfikator komponentu. Przy zmianach layoutu określaj dokładnie, od której do której kolumny ma znajdować się każdy element.</p>
+                  <p>Każdy prompt powinien dotyczyć jednej sekcji, komponentu albo animacji. Możesz pracować w 2–3 wątkach równolegle, jeśli ich zakresy nie dotykają tych samych plików i elementów.</p>
+
+                  <div class="snippet">
+                    <div class="snippet-head"><span class="snippet-label">Przykład / kolor przycisku</span><button class="button copy" type="button">Kopiuj</button></div>
+                    <pre>Zaktualizuj tylko komponent `[IDENTYFIKATOR PRZYCISKU]`. Zmień jego kolor tła na `[KOLOR LUB TOKEN]` i dobierz czytelny kolor tekstu. Zachowaj istniejące wymiary, typografię oraz stany hover i focus. Nie zmieniaj pozostałych przycisków ani globalnej palety. Po zmianie sprawdź rezultat w przeglądarce.</pre>
+                  </div>
+
+                  <div class="snippet">
+                    <div class="snippet-head"><span class="snippet-label">Przykład / układ na gridzie</span><button class="button copy" type="button">Kopiuj</button></div>
+                    <pre>Zaktualizuj tylko sekcję `[IDENTYFIKATOR SEKCJI]`. Na desktopie umieść blok tekstowy w kolumnach 1–4, a główny wizual w kolumnach 5–12. Zachowaj istniejące komponenty i spacing systemu. Na mobile ustaw najpierw tekst, a następnie wizual. Nie przebudowuj pozostałych sekcji. Sprawdź layout w przeglądarce.</pre>
+                  </div>
+
+                  <div class="snippet">
+                    <div class="snippet-head"><span class="snippet-label">Przykład / animacja timeline’u</span><button class="button copy" type="button">Kopiuj</button></div>
+                    <pre>Dodaj subtelną animację do timeline’u `[IDENTYFIKATOR KOMPONENTU]`. Podczas scrollowania kolejne elementy mają pojawiać się sekwencyjnie przez zmianę opacity i przesunięcie w osi Y. Zachowaj czytelność, aktualny layout i płynność na mobile. Uwzględnij `prefers-reduced-motion` i nie zmieniaj innych komponentów. Po implementacji przetestuj efekt w przeglądarce.</pre>
+                  </div>
+
+                  <div class="snippet">
+                    <div class="snippet-head"><span class="snippet-label">Przykład / praca z inspiracją</span><button class="button copy" type="button">Kopiuj</button></div>
+                    <pre>Pracuj tylko nad sekcją `[IDENTYFIKATOR SEKCJI]`. Załączoną inspirację wykorzystaj jako referencję dla `[KOMPOZYCJI / TYPOGRAFII / MOTION / SPOSOBU POKAZANIA PRODUKTU]`, ale nie kopiuj jej dosłownie. Zachowaj komponenty, tokeny i branding Mecha. Najpierw krótko opisz plan zmiany, następnie go wdroż i sprawdź rezultat w przeglądarce.</pre>
+                  </div>
+                </div>
+                <button class="button button--done" type="button" data-done>Oznacz jako gotowe</button>
+              </div>
+            </details>
+          </div>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <button class="guide-launcher" id="guide-launcher" type="button" aria-expanded="false" aria-controls="ai-guide">
+    <span class="guide-launcher-icon" aria-hidden="true">?</span>
+    AI tips
+  </button>
+
+  <aside class="guide-panel" id="ai-guide" aria-hidden="true" aria-labelledby="guide-title">
+    <div class="guide-head">
+      <div><span>Szybki poradnik</span><h2 id="guide-title">Jak sprawnie budować z AI</h2></div>
+      <button class="guide-close" id="guide-close" type="button" aria-label="Zamknij poradnik">×</button>
+    </div>
+    <div class="guide-tips">
+      <details class="tip"><summary>Pracuj maksymalnie w 2–3 wątkach</summary><p>Osobne wątki mogą dotyczyć np. copy, assetu i animacji. Nie otwieraj kilkunastu rozmów, nad którymi trudno zapanować.</p></details>
+      <details class="tip"><summary>Rozdzielaj zakresy</summary><p>Nie zlecaj dwóm agentom jednoczesnej zmiany tego samego komponentu, pliku ani wspólnych tokenów.</p></details>
+      <details class="tip"><summary>Opisuj konkretny rezultat</summary><p>Podaj identyfikator komponentu, cel zmiany, kolumny gridu i elementy, których agent nie powinien ruszać. „Zrób ładniej” nie wystarczy.</p></details>
+      <details class="tip"><summary>Dobieraj model do zadania</summary><p>Mocniejszego modelu używaj do strategii, architektury, komponentów i animacji. Szybszy wystarczy do copy, spacingu i drobnych poprawek.</p></details>
+      <details class="tip"><summary>Nie czekaj bezczynnie</summary><p>Gdy agent buduje wireframe, zbieraj inspiracje, rób screenshoty i przygotowuj assety do kolejnej iteracji.</p></details>
+      <details class="tip"><summary>Inspiracja potrzebuje instrukcji</summary><p>Wklejając referencję do Claude, napisz, czy chodzi o kompozycję, typografię, motion, asset czy zachowanie komponentu.</p></details>
+      <details class="tip"><summary>Iteruj małymi zmianami</summary><p>Przed większą zmianą upewnij się, że projekt działa. Pracuj sekcja po sekcji i po każdej zmianie sprawdzaj efekt w przeglądarce.</p></details>
+      <details class="tip"><summary>Problem techniczny? Zgłoś go</summary><p>Jeżeli projekt nie startuje, terminal pokazuje błąd albo integracja nie działa, zgłoś to prowadzącemu zamiast tracić dużą część warsztatu na diagnozę.</p></details>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Skopiowano</div>
+
+  <script>
+    (() => {
+      const storageKey = 'hackathon-2026-solo-flow-v1';
+      const tasks = [...document.querySelectorAll('.task[data-task]')];
+      const toast = document.getElementById('toast');
+      const guideLauncher = document.getElementById('guide-launcher');
+      const guidePanel = document.getElementById('ai-guide');
+      const guideClose = document.getElementById('guide-close');
+      const inspirationList = document.getElementById('inspiration-list');
+      const inspirationCount = document.getElementById('inspiration-count');
+      const loadMoreInspiration = document.getElementById('load-more-inspiration');
+      let toastTimer;
+
+      const inspirationSources = [
+        { name: 'Awwwards', url: 'https://www.awwwards.com/' },
+        { name: 'Behance', url: 'https://www.behance.net/' },
+        { name: 'Brandbooki', url: 'https://brandingstyleguides.com/' },
+        { name: 'CSS Awards', url: '', description: 'Link do uzupełnienia' },
+        { name: 'Curated Design', url: 'https://www.curated.design/' },
+        { name: 'dark.design', url: 'https://www.dark.design/' },
+        { name: 'Dribbble', url: 'https://dribbble.com/' },
+        { name: 'Fonts In Use', url: 'https://fontsinuse.com/' },
+        { name: 'Footer Design', url: 'https://www.footer.design/', description: 'Projekty footerów i całych stron' },
+        { name: 'Godly', url: 'https://godly.website/' },
+        { name: 'Hoverstat.es', url: 'https://www.hoverstat.es/' },
+        { name: 'Abduzeedo', url: 'https://abduzeedo.com/', description: 'Magazyn i portal o sztuce oraz designie' },
+        { name: 'Panda', url: 'https://app.usepanda.com/#/' },
+        { name: 'Visual Journal', url: 'https://visualjournal.it/' },
+        { name: 'Httpster', url: 'https://httpster.net/' },
+        { name: 'Curator X', url: 'https://www.curatorx.io/inspiration' },
+        { name: 'Land-book', url: 'https://land-book.com/' },
+        { name: 'MaxiBestOf', url: 'https://maxibestof.one/', description: 'Wybrane projekty digitalowe' },
+        { name: 'Minimal Gallery', url: 'https://minimal.gallery/' },
+        { name: 'Mobbin', url: 'https://mobbin.com/browse/ios/apps' },
+        { name: 'OffGrid', url: 'https://www.offgrid-design.co/' },
+        { name: 'Pinterest', url: 'https://pl.pinterest.com/' },
+        { name: 'SaaSpo', url: 'https://www.saaspo.com/' },
+        { name: 'SeeSaw', url: 'https://www.seesaw.website/' },
+        { name: 'Sidebar.io', url: 'https://sidebar.io/' },
+        { name: 'SiteInspire', url: 'https://www.siteinspire.com' },
+        { name: 'The Brand Identity', url: 'https://the-brandidentity.com/features' },
+        { name: 'Wow-web', url: 'https://wow-web.co.uk/' }
+      ];
+
+      const inspirationPageSize = 6;
+      let visibleInspirationCount = 0;
+
+      function readDone() {
+        try {
+          const saved = JSON.parse(localStorage.getItem(storageKey));
+          return Array.isArray(saved) ? new Set(saved) : new Set();
+        } catch (_) {
+          return new Set();
+        }
+      }
+
+      let done = readDone();
+
+      function saveDone() {
+        try { localStorage.setItem(storageKey, JSON.stringify([...done])); } catch (_) {}
+      }
+
+      function renderDone() {
+        tasks.forEach(task => {
+          const isDone = done.has(task.dataset.task);
+          const button = task.querySelector('[data-done]');
+          task.classList.toggle('is-done', isDone);
+          if (!button) return;
+          button.setAttribute('aria-pressed', String(isDone));
+          if (task.dataset.optional === 'true') {
+            button.textContent = isDone ? 'Opcjonalne — cofnij' : 'Oznacz opcjonalnie';
+          } else {
+            button.textContent = isDone ? 'Gotowe — cofnij' : 'Oznacz jako gotowe';
+          }
+        });
+
+        document.querySelectorAll('.stage').forEach(stage => {
+          const requiredTasks = [...stage.querySelectorAll('.task[data-task]:not([data-optional="true"])')];
+          const complete = requiredTasks.length > 0 && requiredTasks.every(task => done.has(task.dataset.task));
+          stage.classList.toggle('is-complete', complete);
+        });
+      }
+
+      tasks.forEach(task => {
+        const button = task.querySelector('[data-done]');
+        if (!button) return;
+        button.addEventListener('click', () => {
+          const id = task.dataset.task;
+          done.has(id) ? done.delete(id) : done.add(id);
+          saveDone();
+          renderDone();
+        });
+      });
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add('is-visible');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 1700);
+      }
+
+      function sourceDescription(source) {
+        if (source.description) return source.description;
+        try { return new URL(source.url).hostname.replace(/^www\./, ''); } catch (_) { return 'Link do uzupełnienia'; }
+      }
+
+      function createSourceRow(source) {
+        const link = document.createElement('a');
+        link.className = 'link-row';
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.href = source.url || '#';
+
+        if (!source.url) {
+          link.setAttribute('aria-disabled', 'true');
+          link.dataset.missingLink = 'css-awards';
+        }
+
+        const platform = document.createElement('span');
+        platform.className = 'link-platform';
+
+        const name = document.createElement('strong');
+        name.textContent = source.name;
+        const description = document.createElement('small');
+        description.textContent = sourceDescription(source);
+        platform.append(name, description);
+
+        const tag = document.createElement('span');
+        tag.className = 'link-tag';
+        tag.textContent = 'Kuratela';
+
+        const arrow = document.createElement('span');
+        arrow.className = 'link-arrow';
+        arrow.setAttribute('aria-hidden', 'true');
+        arrow.textContent = source.url ? '↗' : '—';
+
+        link.append(platform, tag, arrow);
+        return link;
+      }
+
+      function renderNextInspirationPage() {
+        const nextCount = Math.min(visibleInspirationCount + inspirationPageSize, inspirationSources.length);
+        const fragment = document.createDocumentFragment();
+
+        inspirationSources.slice(visibleInspirationCount, nextCount).forEach(source => {
+          fragment.appendChild(createSourceRow(source));
+        });
+
+        inspirationList.appendChild(fragment);
+        visibleInspirationCount = nextCount;
+        inspirationCount.textContent = `${visibleInspirationCount} / ${inspirationSources.length} źródeł`;
+
+        const hasMore = visibleInspirationCount < inspirationSources.length;
+        loadMoreInspiration.hidden = !hasMore;
+        if (hasMore) {
+          const remaining = inspirationSources.length - visibleInspirationCount;
+          loadMoreInspiration.textContent = `Load more · ${Math.min(inspirationPageSize, remaining)}`;
+        }
+      }
+
+      async function copyText(value) {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(value);
+          return;
+        }
+        const area = document.createElement('textarea');
+        area.value = value;
+        area.setAttribute('readonly', '');
+        area.style.position = 'fixed';
+        area.style.opacity = '0';
+        document.body.appendChild(area);
+        area.select();
+        const copied = document.execCommand('copy');
+        area.remove();
+        if (!copied) throw new Error('copy failed');
+      }
+
+      document.querySelectorAll('.copy').forEach(button => {
+        button.addEventListener('click', async () => {
+          const code = button.closest('.snippet')?.querySelector('pre')?.textContent.trim();
+          if (!code) return;
+          try {
+            await copyText(code);
+            showToast('Skopiowano');
+          } catch (_) {
+            showToast('Nie udało się skopiować');
+          }
+        });
+      });
+
+      document.addEventListener('click', event => {
+        const link = event.target.closest('[data-missing-link]');
+        if (link) {
+          event.preventDefault();
+          showToast('Link do uzupełnienia');
+        }
+      });
+
+      loadMoreInspiration.addEventListener('click', renderNextInspirationPage);
+
+      function setGuide(open, restoreFocus = false) {
+        guidePanel.classList.toggle('is-open', open);
+        guidePanel.setAttribute('aria-hidden', String(!open));
+        guideLauncher.setAttribute('aria-expanded', String(open));
+        if (open) guideClose.focus();
+        if (!open && restoreFocus) guideLauncher.focus();
+      }
+
+      guideLauncher.addEventListener('click', () => setGuide(!guidePanel.classList.contains('is-open')));
+      guideClose.addEventListener('click', () => setGuide(false, true));
+
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && guidePanel.classList.contains('is-open')) setGuide(false, true);
+      });
+
+      document.addEventListener('click', event => {
+        if (!guidePanel.classList.contains('is-open')) return;
+        if (!guidePanel.contains(event.target) && !guideLauncher.contains(event.target)) setGuide(false);
+      });
+
+      renderNextInspirationPage();
+      renderDone();
+    })();
+  </script>
+</body>
+</html>

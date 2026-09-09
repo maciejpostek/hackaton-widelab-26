@@ -581,8 +581,8 @@ pre { padding: 28px; }
 /* Two sharp 2px strokes turn from a plus into a cross. */
 .disclosure-icon--plus{position:relative}
 .disclosure-icon--plus::before,.disclosure-icon--plus::after{content:"";position:absolute;left:50%;top:50%;background:currentColor;transform:translate(-50%,-50%)}
-.disclosure-icon--plus::before{width:32px;height:2px}
-.disclosure-icon--plus::after{width:2px;height:32px}
+.disclosure-icon--plus::before{width:24px;height:2px}
+.disclosure-icon--plus::after{width:2px;height:24px}
 .task[open] > .task-summary .task-plus .disclosure-icon { transform: rotate(45deg); }
 @media(prefers-reduced-motion:reduce){.disclosure-icon{transition:none}}
 

@@ -6,8 +6,8 @@
   <meta name="color-scheme" content="light">
   <title>Hackathon 2026 — Widehue</title>
   <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/flow.css?v=hero-workflow">
-  <link rel="stylesheet" href="css/tutorials.css">
+  <link rel="stylesheet" href="css/flow.css?v=agenda-light-compact">
+  <link rel="stylesheet" href="css/tutorials.css?v=agenda-light">
   <link rel="stylesheet" href="css/mobile.css">
 </head>
 <body>
@@ -214,7 +214,7 @@ Na tym etapie skup się na hierarchii, układzie i przepływie informacji. Stwó
         </div>
       </section>
 
-      <section class="stage" id="krok-3" data-theme="dark">
+      <section class="stage" id="krok-3">
         <div class="stage-summary">
           <span class="stage-number" aria-hidden="true"></span>
           <span><span class="eyebrow">Praca kreatywna / główny blok <span class="stage-status">✓ Gotowe</span></span><span class="stage-title">Znajdź inspiracje i iteruj</span></span>
@@ -238,7 +238,7 @@ Na tym etapie skup się na hierarchii, układzie i przepływie informacji. Stwó
                     <div class="snippet-head"><span class="snippet-label">Przykład / sekcja procesu ze screena</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
                     <pre>Załączam screen z inspiracją pokazującą, jak chcę, żeby wyglądała sekcja procesu na moim landing page’u.
 
-Na podstawie tego screena zbuduj sekcję „Proces” w miejscu komponentu `[IDENTYFIKATOR SEKCJI]`. Potraktuj referencję jako wskazówkę dla struktury: układu nagłówka i opisu, rozmieszczenia kroków, ich numeracji, odstępów oraz sposobu połączenia ich w czytelną sekwencję.
+Na podstawie tego screena zbuduj sekcję „Proces” w miejscu `[NAZWA KOMPONENTU, TEKST Z SEKCJI ALBO DOŁĄCZONY SCREEN SEKCJI]`. Potraktuj referencję jako wskazówkę dla struktury: układu nagłówka i opisu, rozmieszczenia kroków, ich numeracji, odstępów oraz sposobu połączenia ich w czytelną sekwencję.
 
 Dopasuj tę strukturę do treści mojego produktu oraz istniejących komponentów, tokenów i brandingu Mecha. Korzystaj z zatwierdzonych treści i plików strategicznych projektu. Nie kopiuj tekstów, logo ani identyfikacji wizualnej z inspiracji. Jeżeli brakuje informacji o procesie, wskaż je zamiast wymyślać kroki.
 
@@ -255,27 +255,27 @@ Na końcu sprawdź sekcję w przeglądarce na desktopie i mobile oraz podsumuj w
               <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Iteruj sekcja po sekcji w Claude</span><span class="task-plus" aria-hidden="true"><span class="disclosure-icon disclosure-icon--plus" aria-hidden="true"></span></span></summary>
               <div class="task-content">
                 <div class="task-copy">
-                  <p>Włącz <strong>Grid Guides</strong>. Gdy chcesz zmienić element, najedź na niego i skopiuj identyfikator komponentu. Przy zmianach layoutu określaj dokładnie, od której do której kolumny ma znajdować się każdy element.</p>
-                  <p>Każdy prompt powinien dotyczyć jednej sekcji, komponentu albo animacji. Możesz pracować w 2–3 wątkach równolegle, jeśli ich zakresy nie dotykają tych samych plików i elementów.</p>
+                  <p>Włącz <strong>Grid Guides</strong>. Gdy chcesz zmienić element, podaj nazwę komponentu, przytocz charakterystyczny tekst z danej sekcji albo dołącz jej screen. Przy zmianach layoutu określaj dokładnie, od której do której kolumny ma znajdować się każdy element.</p>
+                  <p>Każdy prompt kieruj do jednej sekcji, komponentu albo animacji. Możesz pracować w 2–3 wątkach równolegle, jeśli ich zakresy nie dotykają tych samych plików i elementów.</p>
 
                   <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Przykład / kolor przycisku</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>Zaktualizuj tylko komponent `[IDENTYFIKATOR PRZYCISKU]`. Zmień jego kolor tła na `[KOLOR LUB TOKEN]` i dobierz czytelny kolor tekstu. Zachowaj istniejące wymiary, typografię oraz stany hover i focus. Nie zmieniaj pozostałych przycisków ani globalnej palety. Po zmianie sprawdź rezultat w przeglądarce.</pre>
+                    <div class="snippet-head"><span class="snippet-label">Z praktyki / sekcja na podstawie screena</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
+                    <pre>zbuduj sekcje hero w projekcie inspirując się tym screenem, wykorzystaj naszą strategie i design system ale zrób to w takiej kompozycji jak na screenie ale w light mode na 100vh</pre>
                   </div>
 
                   <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Przykład / układ na gridzie</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>Zaktualizuj tylko sekcję `[IDENTYFIKATOR SEKCJI]`. Na desktopie umieść blok tekstowy w kolumnach 1–4, a główny wizual w kolumnach 5–12. Zachowaj istniejące komponenty i spacing systemu. Na mobile ustaw najpierw tekst, a następnie wizual. Nie przebudowuj pozostałych sekcji. Sprawdź layout w przeglądarce.</pre>
+                    <div class="snippet-head"><span class="snippet-label">Z praktyki / rozmieszczenie na gridzie</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
+                    <pre>W sekcji hero ustaw heading od lewej strony od pierwszej kolumny do czwartej oraz, że Oraz że wizual jest od dziewiątej kolumny do dwunastej, ale w tym samym row co heading i usun z lewej strony ten tekst meha shift demo prototype.</pre>
                   </div>
 
                   <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Przykład / animacja timeline’u</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>Dodaj subtelną animację do timeline’u `[IDENTYFIKATOR KOMPONENTU]`. Podczas scrollowania kolejne elementy mają pojawiać się sekwencyjnie przez zmianę opacity i przesunięcie w osi Y. Zachowaj czytelność, aktualny layout i płynność na mobile. Uwzględnij `prefers-reduced-motion` i nie zmieniaj innych komponentów. Po implementacji przetestuj efekt w przeglądarce.</pre>
+                    <div class="snippet-head"><span class="snippet-label">Z praktyki / globalna korekta koloru</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
+                    <pre>Dobra, więc co weźmy wprowadźmy w komponentie Reishio to, żeby ta szachownica wykorzystywała tylko czerni i biał, a najlepiej to, żeby było widać co się dzieje pod w tle szachownicy, a te boksy, które aktualnie są żółte, niech będą po prostu czarne w jakimś takim delikatnym opacity rzędu nie, dwóch procent. Wprowadź to do komponentu Ratio.</pre>
                   </div>
 
                   <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Przykład / praca z inspiracją</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>Pracuj tylko nad sekcją `[IDENTYFIKATOR SEKCJI]`. Załączoną inspirację wykorzystaj jako referencję dla `[KOMPOZYCJI / TYPOGRAFII / MOTION / SPOSOBU POKAZANIA PRODUKTU]`, ale nie kopiuj jej dosłownie. Zachowaj komponenty, tokeny i branding Mecha. Najpierw krótko opisz plan zmiany, następnie go wdroż i sprawdź rezultat w przeglądarce.</pre>
+                    <div class="snippet-head"><span class="snippet-label">Z praktyki / uproszczenie komponentu</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
+                    <pre>uprośćmy accordion - usuńmy mu te ikony tooltip i ikonę material symbols oraz progress bar i animacje. zrobmy to jako standardowy accordion tylko z górnym borderem w kolorze czarnym --color-border-inverse</pre>
                   </div>
                 </div>
                 <button class="button button--done" type="button" data-done><span class="primary-label">Oznacz jako gotowe</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
@@ -307,7 +307,7 @@ Na końcu sprawdź sekcję w przeglądarce na desktopie i mobile oraz podsumuj w
     <div class="guide-tips">
       <details class="tip"><summary>Pracuj maksymalnie w 2–3 wątkach</summary><p>Osobne wątki mogą dotyczyć np. copy, assetu i animacji. Nie otwieraj kilkunastu rozmów, nad którymi trudno zapanować.</p></details>
       <details class="tip"><summary>Rozdzielaj zakresy</summary><p>Nie zlecaj dwóm agentom jednoczesnej zmiany tego samego komponentu, pliku ani wspólnych tokenów.</p></details>
-      <details class="tip"><summary>Opisuj konkretny rezultat</summary><p>Podaj identyfikator komponentu, cel zmiany, kolumny gridu i elementy, których agent nie powinien ruszać. „Zrób ładniej” nie wystarczy.</p></details>
+      <details class="tip"><summary>Opisuj konkretny rezultat</summary><p>Podaj nazwę komponentu, charakterystyczny tekst z sekcji albo dołącz jej screen. Dodaj cel zmiany, kolumny gridu i elementy, których agent nie powinien ruszać. „Zrób ładniej” nie wystarczy.</p></details>
       <details class="tip"><summary>Dobieraj model do zadania</summary><p>Mocniejszego modelu używaj do strategii, architektury, komponentów i animacji. Szybszy wystarczy do copy, spacingu i drobnych poprawek.</p></details>
       <details class="tip"><summary>Nie czekaj bezczynnie</summary><p>Gdy agent buduje wireframe, zbieraj inspiracje, rób screenshoty i przygotowuj assety do kolejnej iteracji.</p></details>
       <details class="tip"><summary>Inspiracja potrzebuje instrukcji</summary><p>Wklejając referencję do Claude, napisz, czy chodzi o kompozycję, typografię, motion, asset czy zachowanie komponentu.</p></details>

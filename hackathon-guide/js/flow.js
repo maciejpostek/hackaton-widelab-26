@@ -14,7 +14,6 @@
         { name: 'Awwwards', url: 'https://www.awwwards.com/' },
         { name: 'Behance', url: 'https://www.behance.net/' },
         { name: 'Brandbooki', url: 'https://brandingstyleguides.com/' },
-        { name: 'CSS Awards', url: '', description: 'Link do uzupełnienia' },
         { name: 'Curated Design', url: 'https://www.curated.design/' },
         { name: 'dark.design', url: 'https://www.dark.design/' },
         { name: 'Dribbble', url: 'https://dribbble.com/' },
@@ -123,11 +122,6 @@
         const description = document.createElement('small');
         description.textContent = sourceDescription(source);
         platform.append(name, description);
-
-        const tag = document.createElement('span');
-        tag.className = 'link-tag';
-        tag.textContent = '(kuratela)';
-        platform.appendChild(tag);
 
         const arrow = document.createElement('span');
         arrow.className = 'link-arrow primary-icon';

@@ -705,3 +705,7 @@ pre { padding: 28px; }
 .strategy-downloads{display:flex;flex-wrap:wrap;gap:24px 40px;margin-block:32px 40px}
 .strategy-downloads .button{max-width:100%}
 .strategy-downloads .primary-label{white-space:normal;text-align:left}
+
+/* Full-bleed closing artwork, outside the agenda content container. */
+.agenda-footer-visual{width:100%;margin:0;padding:0;line-height:0;overflow:hidden}
+.agenda-footer-visual svg{display:block;width:100%;height:auto;max-width:none}

@@ -423,7 +423,7 @@ pre { padding: 28px; }
   .primary-label::after,.primary-icon { transition: none; }
 }
 
-.stage-title::before { opacity: .1; }
+.stage-title::before { color: var(--wide-gray-500); opacity: 1; }
 
 /* Completed tasks offer the reverse action. */
 .task.is-done .button--done .primary-icon svg { transform: rotate(180deg); }

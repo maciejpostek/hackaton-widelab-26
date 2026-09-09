@@ -2,6 +2,6 @@
 .poster-go{text-decoration:none}
 
 /* Completed first event; retain the original date alignment. */
-.poster-date--done{position:relative;color:var(--wide-gray-600)}
-.poster-date--done .poster-line{display:block;text-align:left}
+.poster-date--done{position:relative;color:var(--ink)}
+.poster-date--done .poster-line{display:block;text-align:left;text-decoration-line:line-through}
 .poster-date-status{position:absolute;top:100%;left:0;margin-top:12px;color:var(--wide-gray-800)}

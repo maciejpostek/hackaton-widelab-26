@@ -42,3 +42,7 @@ Kliknięcie tych pozycji wyświetla „Link do uzupełnienia”. Treści o Claud
 - Szerokości 1440, 768 i 390 px: bez poziomego przepełnienia strony, fonty i logo załadowane, brak błędów konsoli. Sprawdzono dodatkowo viewport 720 × 450, odpowiadający przestrzeni CSS 1440 × 900 przy zoomie 200%; rzeczywistego zoomu przeglądarki nie zmieniano.
 - Test funkcji w izolacji: blokada odczytu/zapisu localStorage nie zgłasza wyjątku; fallback kopiowania obsługuje powodzenie i błąd.
 - Bezpośredni podgląd file:// został zablokowany przez narzędzie przeglądarkowe; wizualne testy przeprowadzono przez lokalny HTTP. Struktura zasobów jest względna i nie wymaga serwera ani fetch.
+
+## Animacja nazwy na stronie głównej
+
+`intro/brand-reveal.js` wykorzystuje lokalne GSAP i SplitText 3.13.0 (`intro/vendor/`) do zamiany Widehue / Widelab co 10 sekund. Animowany jest cały wiersz. Preferencja reduced motion wyłącza tę animację, a ukrycie karty ją pauzuje. Biblioteki pochodzą z pakietu npm `gsap@3.13.0`, pobranego przez jsDelivr; informacje licencyjne zachowano w nagłówkach plików. Dokumentacja: https://gsap.com/docs/v3/Plugins/SplitText/

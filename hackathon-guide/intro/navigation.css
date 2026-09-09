@@ -22,3 +22,8 @@
 @media (prefers-reduced-motion:reduce){
   .poster-rings ellipse{animation:none;stroke-dashoffset:0}
 }
+
+/* Both words share a fixed line, so the poster never shifts during a reveal. */
+.poster-brand-reveal{display:grid;overflow:clip;padding-block:.14em;margin-block:-.14em}
+.poster-brand-word{grid-area:1/1;display:block;white-space:nowrap}
+.poster-brand-word + .poster-brand-word{visibility:hidden}

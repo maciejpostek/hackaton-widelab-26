@@ -1,5 +1,6 @@
 (() => {
-      const storageKey = 'hackathon-2026-solo-flow-v1';
+      // Fresh agenda progress, separate from earlier prototype/test checkmarks.
+      const storageKey = 'hackathon-2026-guide-progress-v2';
       const tasks = [...document.querySelectorAll('.task[data-task]')];
       const toast = document.getElementById('toast');
       const guideLauncher = document.getElementById('guide-launcher');

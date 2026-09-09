@@ -22,7 +22,7 @@ Otwórz http://127.0.0.1:8080/. Przy przenoszeniu lub udostępnianiu skopiuj ca�
 - `js/flow.js`: skrypt wyodrębniony bez zmian z prototypu.
 - `assets`: lokalne fonty i logo.
 
-Postęp zapisuje się pod oryginalnym kluczem `hackathon-2026-solo-flow-v1`. Na tym samym originie jest wspólny z prototypem. Nie ma migracji między adresami HTTP, portami ani file://; dostępność zapisu przy bezpośrednim otwarciu zależy od przeglądarki. Niedostępny storage nie zatrzymuje pracy w aktualnej sesji. Otwarcie/zamknięcie accordionów nie jest zapisywane — tak jak w źródle.
+Postęp agendy zapisuje się pod kluczem `hackathon-2026-guide-progress-v2`. Poprzedni zapis testowy `hackathon-2026-solo-flow-v1` nie jest odczytywany: pierwsze otwarcie tej wersji zaczyna się od odznaczonych zadań, a nowe zaznaczenia są zapamiętywane. Nie ma migracji między adresami HTTP, portami ani file://; dostępność zapisu przy bezpośrednim otwarciu zależy od przeglądarki. Niedostępny storage nie zatrzymuje pracy w aktualnej sesji. Otwarcie/zamknięcie accordionów nie jest zapisywane — tak jak w źródle.
 
 ## Kwestie przed udostępnieniem
 

@@ -149,7 +149,7 @@ th{font-weight:500;color:var(--color-muted);font-size:.75rem;letter-spacing:.07e
 @keyframes ring-draw{to{stroke-dashoffset:0}}
 .poster-dates{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(12px,3vw,48px);width:100%}
 .poster-dates .poster-line{font-size:clamp(34px,min(9.5vw,13svh),190px);text-align:left}
-.poster-dates .poster-line:last-child{text-align:right}
+.poster-dates > .poster-line:last-child{text-align:right}
 .poster-go{display:grid;justify-items:center;gap:6px;background:none;border:0;padding:8px;color:var(--ink);cursor:pointer;width:clamp(120px,24vw,440px)}
 .poster-go svg{width:100%;height:auto;display:block;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
 .poster-go .eyebrow{color:var(--ink);opacity:.7;transition:opacity var(--duration);background:var(--wide-gray-200);padding:2px 10px;border-radius:999px}

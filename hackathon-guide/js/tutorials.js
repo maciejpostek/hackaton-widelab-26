@@ -6,7 +6,7 @@
   const chat = (label, prompt, answer) => `<div class="demo-chat"><span class="demo-mini">${label}</span><div class="demo-message" data-reveal="1">${prompt}</div><div class="demo-answer" data-reveal="2">${answer}</div><div class="demo-input">Napisz do Claude <span>↑</span></div></div>`;
   const terminal = (command, result) => `<div class="demo-terminal" data-reveal="1"><span class="demo-mini">Terminal · folder startera</span><div class="demo-command">${command}</div><div class="demo-output" data-reveal="2">${result}</div></div>`;
   const browser = (content) => `<div class="demo-browser" data-reveal="2"><div class="demo-address">${icon('file')} localhost:4321</div><div class="demo-web">${content}</div></div>`;
-  const skeleton = '<span class="demo-mini">MECHA · WIREFRAME</span><div class="demo-skeleton-title"></div><div class="demo-skeleton-line"></div><div class="demo-cards"><i></i><i></i><i></i></div>';
+  const skeleton = '<span class="demo-mini">MECHA · STRUKTURA SEKCJI</span><div class="demo-skeleton-title"></div><div class="demo-skeleton-line"></div><div class="demo-cards"><i></i><i></i><i></i></div>';
   const scenes = {
     'open-preview': {
       title: 'Adres Local → strona w przeglądarce', kind: 'preview',
@@ -14,24 +14,24 @@
       body: '<div class="demo-terminal"><span class="demo-mini">CLAUDE · TERMINAL</span><div class="demo-command">$ npm run dev</div><div class="demo-output">Astro · ready<br><br>Local:<br><span class="demo-local-url">http://localhost:4321/</span></div><span class="demo-mini">Przykładowy adres lokalny</span></div>' + browser('<span class="demo-mini">MECHA · STARTER ASTRO</span><div class="demo-skeleton-title"></div><div class="demo-skeleton-line"></div><div class="demo-cards"><i></i><i></i><i></i></div><p class="demo-preview-ready">✓ Podgląd działa</p>')
     },
     'open-claude': {
-      title: 'Folder → projekt w Claude', kind: 'drag', steps: ['Wybierz rozpakowany folder startera.', 'Przeciągnij folder do okna Claude.', 'Sprawdź, czy Claude pracuje w folderze startera.'],
-      body: file('starter-astro/', 'folder') + chat('Claude · otwórz projekt', '📎 starter-astro/', 'Projekt: starter-astro/<br><span class="demo-mini">Folder projektu jest otwarty.</span>')
+      title: 'Wybór folderu → projekt w Claude', kind: 'folder-picker', steps: ['Kliknij ikonę folderu nad polem wiadomości w Claude.', 'W oknie wyboru z dysku zaznacz rozpakowany folder starter-astro i kliknij „Otwórz”.', 'Sprawdź, czy Claude pracuje w folderze startera.'],
+      body: `<div class="demo-chat demo-project-chat"><span class="demo-mini">CLAUDE · OTWÓRZ PROJEKT</span><div class="demo-answer" data-reveal="2">Projekt: starter-astro/<br><span class="demo-mini">Folder projektu jest otwarty.</span></div><div class="demo-project-composer"><div class="demo-folder-control"><span class="demo-folder-icon">${icon('folder')}</span><span class="demo-folder-label">Wybierz folder</span><span class="demo-folder-selected" data-reveal="2">starter-astro/</span></div><div class="demo-input">Napisz do Claude <span>↑</span></div></div></div><div class="demo-folder-dialog"><div class="demo-picker-heading">Wybierz folder projektu</div><div class="demo-picker-path">Ten komputer / Pobrane</div><div class="demo-picker-row">${icon('folder')}<span>starter-astro</span><span class="demo-picker-check">✓</span></div><div class="demo-picker-footer"><span class="demo-picker-open">Otwórz</span></div></div>`
     },
     'install-node': {
       title: 'Claude → terminal', kind: 'terminal', steps: ['Znajdź ikonę terminala w prawym górnym rogu.', 'Otwórz terminal i wklej polecenie dla swojego systemu.', 'Sprawdź instalację: node --version i npm --version.'],
       body: '<div class="demo-editor"><span class="demo-mini">CLAUDE · STARTER ASTRO</span><p>Twój projekt jest otwarty.</p><div class="demo-skeleton-line"></div></div>' + terminal('<span>macOS / Homebrew</span>brew install node<br><br><span>Windows / winget</span>winget install OpenJS.NodeJS.LTS', '$ node --version<br>v…<br>$ npm --version<br>…<br><span class="demo-mini">Oczekiwany wynik: numery wersji.</span>')
     },
     'start-server': {
-      title: 'Terminal → podgląd Astro', kind: 'server', steps: ['W terminalu, w folderze projektu, wpisz npm install.', 'Po instalacji uruchom npm run dev.', 'Otwórz adres Local zwrócony przez terminal.'],
-      body: '<div class="demo-terminal"><span class="demo-mini">TERMINAL · STARTER ASTRO</span><div class="demo-command">$ npm install</div><div class="demo-command" data-reveal="1">$ npm run dev</div><div class="demo-output" data-reveal="2">Local: http://localhost:4321/<br><span class="demo-mini">Przykładowy adres — użyj adresu ze swojego terminala.</span></div></div>' + browser(skeleton)
+      title: 'Ikona terminala → panel po prawej', kind: 'server', steps: ['Kliknij ikonę terminala w prawym górnym rogu aplikacji Claude.', 'W panelu terminala, który wysunie się po prawej, wpisz npm install i naciśnij Enter.', 'Po zakończeniu instalacji wpisz npm run dev w tym samym panelu i naciśnij Enter.', 'Projekt działa. Otwórz adres Local zwrócony przez terminal i pozostaw serwer uruchomiony.'],
+      body: '<div class="demo-server-chat"><span class="demo-mini">CLAUDE · STARTER ASTRO</span><p>Twój projekt jest otwarty.</p><div class="demo-skeleton-line"></div><div class="demo-input">Napisz do Claude <span>↑</span></div></div><div class="demo-server-panel"><div class="demo-terminal demo-server-terminal"><span class="demo-mini">TERMINAL</span><span class="demo-mini">starter-astro/</span><div class="demo-command" data-reveal="1"><span class="demo-typed-command demo-type-install">$ npm install</span></div><div class="demo-output" data-reveal="2">Instalacja zakończona.</div><div class="demo-command" data-reveal="2"><span class="demo-typed-command demo-type-dev">$ npm run dev</span></div><div class="demo-output" data-reveal="3">Astro · ready<br><br>Local:<br><span class="demo-local-url">http://localhost:4321/</span><br><br><span class="demo-mini">Użyj adresu zwróconego przez terminal.</span></div></div></div>'
     },
     'import-strategy': {
       title: 'Strategia → kontekst projektu', kind: 'drag', steps: ['Otwórz nowy wątek w projekcie.', 'Załącz brief.md oraz uzupełnienie, jeśli strategia się zmieniła. Wklej prompt poniżej.', 'Sprawdź podsumowanie zapisanych plików i brakujących informacji.'],
       body: file('brief.md') + chat('Claude · nowy wątek', '📎 brief.md + uzupełnienie, jeśli dotyczy<br>Przenieś kontekst do plików projektu. Nie twórz jeszcze interfejsu.', 'Kontekst zapisany.<br>Sprawdź: zmienione pliki, fakty, założenia i otwarte kwestie.')
     },
     'build-wireframe': {
-      title: 'Zatwierdzony plan → wireframe', kind: 'build', steps: ['Kontynuuj wątek z zatwierdzoną architekturą informacji.', 'Poproś o wireframe z istniejących komponentów startera.', 'Sprawdź strukturę i kolejność sekcji w przeglądarce.'],
-      body: chat('Claude · starter Astro', 'Zbuduj wireframe według naszych ustaleń. Użyj design systemu, brand rules i brand.md, a teksty oprzyj na strategii marki.', 'Sprawdź układ, hierarchię i przepływ informacji w podglądzie.') + browser(skeleton)
+      title: 'Zatwierdzony plan → struktura sekcji', kind: 'build', steps: ['Kontynuuj wątek z zatwierdzoną architekturą informacji.', 'Zleć budowę sekcji; AI dobierze układ i kolory w ramach design systemu.', 'Sprawdź strukturę i kolejność sekcji w przeglądarce.'],
+      body: chat('Claude · starter Astro', 'Zbuduj strukturę sekcji według naszych ustaleń. Użyj design systemu, brand rules i brand.md, a teksty oprzyj na strategii marki.', 'Sprawdź układ, hierarchię i przepływ informacji w podglądzie.') + browser(skeleton)
     },
     'find-and-collect-inspiration': {
       title: 'Screen → wybrana sekcja', kind: 'drag', steps: ['Wybierz screen sekcji, która Cię inspiruje.', 'Załącz go do Claude i opisz, co chcesz wykorzystać.', 'Poproś o sekcję procesu zgodną z brandingiem Mecha.'],
@@ -53,7 +53,7 @@
     const pause = host.querySelector('.demo-pause');
     const render = () => {
       host.dataset.phase = phase;
-      host.querySelector('.demo-caption').textContent = `${phase + 1} / 3 — ${scene.steps[phase]}`;
+      host.querySelector('.demo-caption').textContent = `${phase + 1} / ${scene.steps.length} — ${scene.steps[phase]}`;
       host.querySelectorAll('[data-reveal]').forEach(el => { el.classList.toggle('demo-visible', Number(el.dataset.reveal) <= phase); });
       pause.textContent = paused ? 'Odtwórz' : 'Pauza';
       pause.setAttribute('aria-label', paused ? 'Odtwórz demonstrację' : 'Wstrzymaj demonstrację');
@@ -62,10 +62,10 @@
       clearTimeout(timer);
       const running = visible && task.open && !document.hidden && !paused;
       host.classList.toggle('demo-running', running && !reduced.matches);
-      if (running) timer = setTimeout(() => { phase = (phase + 1) % 3; render(); sync(); }, 4000);
+      if (running) timer = setTimeout(() => { phase = (phase + 1) % scene.steps.length; render(); sync(); }, 4000);
     };
     pause.addEventListener('click', () => { paused = !paused; render(); sync(); });
-    host.querySelector('.demo-next').addEventListener('click', () => { paused = true; phase = (phase + 1) % 3; render(); sync(); });
+    host.querySelector('.demo-next').addEventListener('click', () => { paused = true; phase = (phase + 1) % scene.steps.length; render(); sync(); });
     task.addEventListener('toggle', sync);
     document.addEventListener('visibilitychange', sync);
     reduced.addEventListener('change', () => { paused = reduced.matches; render(); sync(); });

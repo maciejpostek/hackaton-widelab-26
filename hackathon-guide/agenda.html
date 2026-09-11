@@ -39,14 +39,14 @@
               <div class="task-content">
                 <div class="task-copy">
                   <p>Pobierz paczkę, rozpakuj ją w łatwym do znalezienia miejscu i nazwij folder według produktu, np. <strong>nazwa-produktu-landing</strong>.</p>
-                  <div class="links"><a class="button button--accent button--download" href="#" aria-disabled="true" data-missing-link="astro-starter"><span class="primary-label">Pobierz starter — link do uzupełnienia</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg></span></a></div>
+                  <div class="links"><a class="button button--accent button--download" href="downloads/astro-mecha-starterpack.zip" download><span class="primary-label">Pobierz starter (ZIP)</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg></span></a></div>
                 </div>
                 <button class="button button--done" type="button" data-done><span class="primary-label">Oznacz jako gotowe</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
               </div>
             </details>
 
             <details class="task" data-task="open-claude">
-              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Otwórz Claude i wskaż folder projektu</span><span class="task-plus" aria-hidden="true"><span class="disclosure-icon disclosure-icon--plus" aria-hidden="true"></span></span></summary>
+              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Otwórz Claude i wskaż folder projektu ze starterem astro</span><span class="task-plus" aria-hidden="true"><span class="disclosure-icon disclosure-icon--plus" aria-hidden="true"></span></span></summary>
               <div class="task-content">
                 <div class="flow-demo" data-demo="open-claude" role="group" aria-label="Demonstracja kroku"></div>
                 <div class="task-copy"><p>Uruchom Claude i wskaż dokładnie folder, w którym znajduje się rozpakowany starter Astro. Przed każdym promptem upewnij się, że pracujesz w prawidłowym projekcie.</p></div>
@@ -85,13 +85,13 @@ npm --version</pre>
               <div class="task-content">
                 <div class="flow-demo" data-demo="start-server" role="group" aria-label="Demonstracja kroku"></div>
                 <div class="task-copy">
-                  <p>Po zainstalowaniu Node.js otwórz terminal w folderze startera — tym, w którym znajduje się <code>package.json</code>. Najpierw zainstaluj zależności projektu:</p>
+                  <p>W Claude otwórz projekt, do którego wcześniej wskazałeś folder ze starterem Astro. Kliknij ikonę terminala w prawym górnym rogu okna Claude, aby otworzyć konsolę. Upewnij się, że terminal pracuje w folderze startera, w którym znajduje się plik <code>package.json</code>. Przy pierwszym uruchomieniu zainstaluj zależności projektu:</p>
                   <div class="snippet">
                     <div class="snippet-head"><span class="snippet-label">Terminal / instalacja zależności (Astro i Vite)</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
                     <pre>npm install</pre>
                   </div>
                   <p><strong>Vite instaluje się razem z zależnościami Astro.</strong> Nie musisz mieć go wcześniej na komputerze ani instalować go globalnie. Poczekaj, aż <code>npm install</code> zakończy się poprawnie i terminal będzie gotowy na kolejne polecenie.</p>
-                  <p>Następnie uruchom lokalny serwer:</p>
+                  <p>W tej samej konsoli wpisz <code>npm run dev</code> i naciśnij Enter. To polecenie uruchomi lokalny podgląd startera Astro:</p>
                   <div class="snippet">
                     <div class="snippet-head"><span class="snippet-label">Terminal / uruchomienie projektu</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
                     <pre>npm run dev</pre>
@@ -136,17 +136,17 @@ npm --version</pre>
       <section class="stage" id="krok-2">
         <div class="stage-summary">
           <span class="stage-number" aria-hidden="true"></span>
-          <span><span class="eyebrow">Strategia i wireframe / około 20 minut <span class="stage-status">✓ Gotowe</span></span><span class="stage-title">Zaimportuj strategię i zbuduj wireframe</span></span>
+          <span><span class="eyebrow">Strategia i wireframe / około 20 minut <span class="stage-status">✓ Gotowe</span></span><span class="stage-title">Zaimportuj strategię i zbuduj pierwszą wersje strony</span></span>
         </div>
         <div class="stage-body">
           <p class="stage-lead">Najpierw przekaż agentowi kontekst produktu. Następnie poproś o propozycję 2–3 sekcji, wybierz kierunek i dopiero wtedy zleć budowę strukturalnej bazy strony.</p>
           <div class="tasks">
             <details class="task" data-task="import-strategy">
-              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Załącz strategię w nowym wątku</span><span class="task-plus" aria-hidden="true"><span class="disclosure-icon disclosure-icon--plus" aria-hidden="true"></span></span></summary>
+              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Załącz brief.md w nowym wątku</span><span class="task-plus" aria-hidden="true"><span class="disclosure-icon disclosure-icon--plus" aria-hidden="true"></span></span></summary>
               <div class="task-content">
                 <div class="flow-demo" data-demo="import-strategy" role="group" aria-label="Demonstracja kroku"></div>
                 <div class="task-copy">
-                  <p>Wybierz pakiet strategiczny, z którego korzystałeś poprzedniego dnia, i rozpakuj pobrany ZIP. Jeżeli strategia uległa zmianie, przygotuj osobny plik Markdown z jej uzupełnieniem — opisz w nim zmiany i nowe ustalenia.</p>
+                  <p>Z poniższej listy wybierz pakiet plików dla produktu, nad którym pracowałeś pierwszego dnia hackathonu: Aescape Atlas, Catch, Almanac lub Undo. Pobierz odpowiedni ZIP i rozpakuj go — w środku znajdziesz plik <code>pakiet/brief.md</code>, który załączysz w nowym wątku. Jeżeli strategia produktu uległa zmianie podczas pracy pierwszego dnia, przygotuj osobny plik Markdown z jej uzupełnieniem — opisz w nim zmiany i nowe ustalenia.</p>
                   <p>Otwórz nowy wątek w Claude w projekcie startera. Załącz plik <code>pakiet/brief.md</code> z wybranego pakietu oraz plik z uzupełnieniem, jeśli go przygotowałeś, i wklej poniższy prompt. Agent ma uzupełnić właściwe pliki startera, ale jeszcze niczego nie projektować.</p>
                   <div class="strategy-downloads" aria-label="Pakiety strategiczne do pobrania">
                     <a class="button button--accent button--download" href="downloads/mecha-atlas.zip" download><span class="primary-label">Pobierz Aescape Atlas (ZIP)</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg></span></a>
@@ -155,12 +155,22 @@ npm --version</pre>
                     <a class="button button--accent button--download" href="downloads/mecha-undo.zip" download><span class="primary-label">Pobierz Undo (ZIP)</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg></span></a>
                   </div>
                   <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Prompt 01 / import strategii</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>Przeczytaj załączony brief z pakietu strategicznego, z którego korzystałem podczas pierwszego dnia. Jeśli załączam również plik z uzupełnieniem strategii, uwzględnij opisane w nim zmiany i nowe ustalenia jako aktualizację briefu. Jeżeli dokumenty są sprzeczne, a uzupełnienie nie rozstrzyga konfliktu, wskaż go przed zapisaniem kontekstu. Najpierw zapoznaj się z dokumentacją startera i regułami dotyczącymi plików strategicznych.
+                    <div class="snippet-head"><span class="snippet-label">Prompt 01 / z briefu do strategii</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
+                    <pre>Użyj lokalnego skilla astro-strategy-build. Na podstawie załączonego pakiet/brief.md przygotuj spójną strategię pod anglojęzyczny landing page prezentujący i promujący produkt — również wtedy, gdy brief opisuje aplikację lub ekran urządzenia. Jeśli dołączam uzupełnienie, uwzględnij je jako aktualizację.
 
-Przenieś istotny kontekst produktu do właściwych plików w projekcie. Oddziel potwierdzone fakty, założenia i brakujące informacje. Nie twórz jeszcze interfejsu ani nowych komponentów.
+To projekt testowy na hackathon. Uzupełnij luki przemyślanymi założeniami dotyczącymi odbiorców, pozycjonowania, wartości, języka i oferty. Możesz stworzyć przykładowe ceny, metryki i fikcyjne opinie, jeśli wspierają koncepcję. W dokumentach odróżnij informacje z briefu od założeń i danych demonstracyjnych; nie przypisuj wymyślonych opinii rzeczywistym osobom ani firmom. Traktuj te założenia jako przyjęte do dalszej pracy nad prototypem. Nie zadawaj pytań o brakujące dane ani nie prowadź researchu. Sprzeczności rozstrzygnij spójną decyzją roboczą i krótko ją odnotuj.
 
-Na końcu podsumuj, jakie pliki utworzyłeś lub zmieniłeś, oraz wskaż luki, które mogą wpłynąć na komunikację landing page’a.</pre>
+Zapisz oryginalny brief bez zmian i przygotuj strategię w tych plikach, względem głównego folderu projektu:
+- project-context/research/source-brief.md — oryginalny brief;
+- project-context/audiences/icp.md — odbiorcy, potrzeby i motywacje;
+- project-context/value-proposition/value-proposition.md — wartość i wyróżniki;
+- project-context/brand-foundations/strategy.md — pozycjonowanie i strategia produktu;
+- project-context/brand-foundations/tone-of-voice.md — język i zasady komunikacji;
+- project-context/content/product-brief.md — uporządkowany brief i cel landing page’a;
+- project-context/business-model/business-context.md — oferta i model biznesowy, jeśli mają znaczenie dla koncepcji.
+Zaktualizuj project-context/context-index.json, zachowując jeden stabilny identyfikator produktu oraz rozróżnienie źródeł i założeń.
+
+Strategię opracuj po polsku, a przykłady tekstów strony po angielsku. Nie zmieniaj wizualnych zasad Mecha ani brand.md. Nie proponuj jeszcze IA i nie pisz kodu. Na końcu krótko podsumuj zapisane pliki i najważniejsze przyjęte założenia.</pre>
                   </div>
                 </div>
                 <button class="button button--done" type="button" data-done><span class="primary-label">Oznacz jako gotowe</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
@@ -173,16 +183,20 @@ Na końcu podsumuj, jakie pliki utworzyłeś lub zmieniłeś, oraz wskaż luki, 
                 <div class="task-copy">
                   <p>Poproś AI o krótki plan. Na tym etapie wybierasz, co landing page ma powiedzieć — agent nie powinien jeszcze pisać kodu.</p>
                   <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Prompt 02 / propozycja sekcji</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>Na podstawie plików strategicznych produktu zaproponuj architekturę informacji dla landing page’a składającego się z 2–3 sekcji. Sekcje mają jasno komunikować wartość produktu i promować go właściwemu odbiorcy.
+                    <div class="snippet-head"><span class="snippet-label">Prompt 02 / architektura informacji i wizuale</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
+                    <pre>Użyj lokalnego skilla astro-strategy-analysis. Przeczytaj project-context/context-index.json i tylko potrzebne dokumenty strategiczne, które wskazuje. Surowy brief doczytaj wyłącznie dla konkretnej luki lub sprzeczności; nie przeszukuj komponentów, CSS ani dokumentacji Design Systemu.
+
+Zaproponuj architekturę informacji anglojęzycznego landing page’a: trzy sekcje, a czwartą tylko wtedy, gdy wnosi wyraźną wartość. Maksymalnie cztery sekcje łącznie z hero i końcowym CTA. Oprzyj propozycję na strategii oraz przyjętych założeniach i danych demonstracyjnych prototypu. Nie wracaj do pytań o ich potwierdzenie.
 
 Dla każdej sekcji podaj:
-1. cel komunikacyjny,
-2. jeden główny komunikat,
-3. potrzebną treść, dowód lub asset,
+1. miejsce w kolejności, cel i jeden główny komunikat;
+2. propozycję nagłówka, krótkiego copy i CTA, jeśli jest potrzebne;
+3. propozycję wizuala oraz konkretny brief assetu do stworzenia: co przedstawia, jak wspiera komunikat, jego kompozycję, orientacyjne proporcje i sposób wykonania, np. grafika generowana, mockup ekranu lub diagram HTML/CSS;
 4. sposób przejścia do kolejnej sekcji.
 
-Przedstaw wynik jako krótką, numerowaną listę. Nie pisz kodu, nie buduj jeszcze strony i nie dodawaj niepotwierdzonych informacji.</pre>
+Proponuj, co stworzyć dla danej sekcji, zamiast wyliczać brakujące materiały. Jeśli obraz nie jest potrzebny, zaproponuj kompozycję opartą na typografii, liczbach lub prostym schemacie. Brak gotowych assetów nie blokuje IA.
+
+Przedstaw zwięzłą, numerowaną propozycję w rozmowie. Copy strony napisz po angielsku, uzasadnienia i briefy assetów po polsku. Na tym etapie nie zapisuj plików, nie pisz kodu i nie generuj assetów. Zakończ krótkim uzasadnieniem kolejności sekcji.</pre>
                   </div>
                 </div>
                 <button class="button button--done" type="button" data-done><span class="primary-label">Oznacz jako gotowe</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
@@ -190,20 +204,27 @@ Przedstaw wynik jako krótką, numerowaną listę. Nie pisz kodu, nie buduj jesz
             </details>
 
             <details class="task" data-task="build-wireframe">
-              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Zleć budowę wireframe’u</span><span class="task-plus" aria-hidden="true"><span class="disclosure-icon disclosure-icon--plus" aria-hidden="true"></span></span></summary>
+              <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Zleć budowę struktury sekcji</span><span class="task-plus" aria-hidden="true"><span class="disclosure-icon disclosure-icon--plus" aria-hidden="true"></span></span></summary>
               <div class="task-content">
                 <div class="flow-demo" data-demo="build-wireframe" role="group" aria-label="Demonstracja kroku"></div>
                 <div class="task-copy">
-                  <p>W tym samym wątku, w którym omówiłeś i zatwierdziłeś architekturę informacji, wklej poniższy prompt. Nie musisz ponownie wklejać planu — agent ma wykorzystać ustalenia z rozmowy i zbudować działający wireframe na bazie design systemu oraz strategii marki.</p>
+                  <p>W tym samym wątku, w którym omówiłeś i zatwierdziłeś architekturę informacji, wklej poniższy prompt. AI zbuduje pierwszą wersję sekcji na podstawie strategii marki i ustalonego planu strony — nie musisz ponownie go wklejać.</p>
+                  <p>Na tym etapie AI samodzielnie dobierze kolory z palety marki, układ sekcji i rozmieszczenie treści, korzystając z istniejącego design systemu oraz zasad w <code>brand.md</code>. Potraktuj rezultat jako punkt wyjścia. Gdy sekcje będą gotowe, przejdziesz do kreatywnej iteracji: ocenisz propozycję i dopracujesz ją z AI, sekcja po sekcji.</p>
                   <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Prompt 03 / budowa wireframe’u</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>Przejdź do budowy działającego wireframe’u landing page’a. Oprzyj architekturę informacji na propozycjach omówionych wyżej w tej rozmowie i na tym, co wspólnie zatwierdziliśmy. Zachowaj uzgodnione sekcje, ich kolejność, cele i zakres. Nie rozpoczynaj ponownie etapu proponowania architektury; jeśli kluczowa decyzja pozostała nierozstrzygnięta, dopytaj o nią przed implementacją.
+                    <div class="snippet-head"><span class="snippet-label">Prompt 03 / budowa struktury sekcji</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
+                    <pre>Zbuduj pierwszą działającą wersję struktury sekcji landing page’a według architektury informacji zaakceptowanej wyżej w tej rozmowie. Zachowaj uzgodnione sekcje, ich kolejność, cele i zakres; nie proponuj IA ponownie. Zapisz krótki plan w project-context/content/page-plan.md i wdroż stronę główną na /, w src/pages/index.astro. Nie twórz dodatkowej trasy.
 
-Zbuduj stronę na bazie istniejącego design systemu projektu: korzystaj z jego komponentów, tokenów i assetów. Przestrzegaj brand rules, zasad opisanych w brand.md oraz reguł pracy zapisanych w repozytorium. Zachowaj zgodność z brandingiem już na etapie wireframe’u i nie twórz równoległego systemu stylów.
+Wszystkie teksty strony przygotuj po angielsku, zgodnie ze strategią, tone of voice i ustaleniami z rozmowy. Korzystaj z przyjętych założeń i danych demonstracyjnych prototypu bez ponownego pytania o ich zatwierdzenie. Zachowaj informację o ich pochodzeniu w dokumentach strategicznych.
 
-Przygotuj teksty sekcji na podstawie strategii marki i produktu zapisanej w projekcie, uwzględniając jej aktualizacje oraz ustalenia z naszej rozmowy. Dopasuj komunikację do odbiorców, propozycji wartości, celu strony i języka marki. Nie wymyślaj faktów, danych, obietnic ani referencji — brakujące informacje oznacz do uzupełnienia.
+Stosuj lokalne instrukcje projektu: starter określa sposób budowania interfejsu, komponenty swoje API i zachowanie, a Mecha wygląd. Dobierz istniejące komponenty i Website Patterns do potrzeb sekcji, a następnie sprawdź dokładne API wybranych elementów. Wspólną grupę nagłówka, tekstu i akcji buduj przez Content, gdy pasuje do układu. Gdy pattern nie pasuje, użyj lokalnego HTML/CSS oraz systemowych variables.
 
-Na tym etapie skup się na hierarchii, układzie i przepływie informacji. Stwórz działającą, responsywną bazę do dalszego dopracowania wizualnego. Po implementacji sprawdź stronę w przeglądarce na desktopie i mobile, a następnie podsumuj zmienione pliki oraz otwarte kwestie.</pre>
+Korzystaj z systemowych struktur layoutu i właściwych kategorii variables: gap dla dzieci grupy, space dla odstępów w przepływie, content-padding dla wnętrza powierzchni oraz section-padding dla sekcji. Odstęp ustawiaj na właściwym rodzicu i nie dubluj go marginesem dziecka. Dobieraj pozostałe variables zgodnie z ich przeznaczeniem. Zachowaj typografię, kolory i wygląd komponentów Mecha z brand.md; przykłady marki nie ograniczają geometrii sekcji. Samodzielnie dobierz kolory z istniejącej palety marki, układ sekcji i rozmieszczenie treści, zachowując zatwierdzoną IA. W ramach budowy strony nie zmieniaj globalnego API komponentów ani nie twórz nowych publicznych tokenów.
+
+Wykorzystaj dostępne assety zgodnie z planem wizuali. Dla brakujących obrazów zachowaj docelową geometrię przez systemowy placeholder; prosty diagram lub mockup możesz zbudować lokalnie w HTML/CSS. Generowanie obrazów pozostaw do osobnego polecenia. Brak gotowych grafik nie blokuje budowy.
+
+Zachowaj BaseLayout, ComponentInfoLayer oraz kontrolki grid guides i dokumentacji Design Systemu w prawym dolnym rogu. Korzystaj z serwera uruchomionego dla tego projektu albo uruchom go zgodnie z konfiguracją i podaj adres z terminala. Projekt nie wymaga Git.
+
+Przygotuj responsywną bazę do wspólnej oceny i dalszej kreatywnej iteracji sekcja po sekcji. Sprawdź stronę na desktopie 1440×900 i mobile 390×844: odstępy między nagłówkiem, treścią, akcjami i mediami, overflow oraz podstawowe interakcje. Podczas kontroli interakcji wyłącz guides. Wykonaj proporcjonalną walidację zgodnie z instrukcjami projektu, bez produkcyjnych audytów. Na końcu krótko podsumuj zmiany, wynik sprawdzenia i miejsca z placeholderami.</pre>
                   </div>
                   <p class="notice"><strong>To zadanie może potrwać kilka lub kilkanaście minut.</strong> Nie czekaj bezczynnie — przejdź od razu do kroku 3 i zacznij zbierać inspiracje.</p>
                 </div>
@@ -221,6 +242,12 @@ Na tym etapie skup się na hierarchii, układzie i przepływie informacji. Stwó
         </div>
         <div class="stage-body">
           <p class="stage-lead">W czasie budowy wireframe’u zbierz kierunek wizualny. Gdy baza będzie gotowa, rozwijaj ją małymi zmianami zgodnie z workflow startera pokazanym przez prowadzącego w kroku 0.</p>
+          <nav class="strategy-downloads" aria-label="Materiały i linki Mecha">
+            <a class="button button--accent" href="https://mecha.xyz/" target="_blank" rel="noopener noreferrer"><span class="primary-label">Oficjalna strona Mecha</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19 19 5M5 5h14v14"/></svg></span></a>
+            <a class="button button--accent" href="https://www.figma.com/design/C1fyq47cAUsiRQfWxJ65C0/Mecha-Starter?node-id=0-1&amp;t=g8jtwZjEohXHWNTH-1" target="_blank" rel="noopener noreferrer"><span class="primary-label">Prosty styleguide w Figmie — do sklonowania</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19 19 5M5 5h14v14"/></svg></span></a>
+            <a class="button button--accent" href="https://www.figma.com/design/hEDx3hQNYDELuJHc3L3fxC/Mecha---Brand-Guidelines?node-id=4153-637&amp;t=TgE5ykz9hR2i0CKO-1" target="_blank" rel="noopener noreferrer"><span class="primary-label">Brandbook Mecha w Figmie</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19 19 5M5 5h14v14"/></svg></span></a>
+            <a class="button button--accent button--download" href="downloads/brandbook-mecha.pdf" download><span class="primary-label">Pobierz brandbook Mecha (PDF, 64 MB)</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg></span></a>
+          </nav>
           <div class="tasks">
             <details class="task" data-task="find-and-collect-inspiration">
               <summary class="task-summary"><span class="task-check" aria-hidden="true"></span><span class="task-title">Znajdź i zbierz inspiracje</span><span class="task-plus" aria-hidden="true"><span class="disclosure-icon disclosure-icon--plus" aria-hidden="true"></span></span></summary>
@@ -233,21 +260,56 @@ Na tym etapie skup się na hierarchii, układzie i przepływie informacji. Stwó
                     <span class="source-count" id="inspiration-count"></span>
                     <button class="button" id="load-more-inspiration" type="button">Load more</button>
                   </div>
-                  <p>Gdy wireframe będzie gotowy, załącz wybrane materiały do Claude i opisz, <strong>jaki efekt chcesz uzyskać</strong>: kompozycję, typografię, motion, asset albo sposób prezentacji produktu. Nie proś o bezpośrednie kopiowanie całej strony.</p>
-                  <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Przykład / sekcja procesu ze screena</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>Załączam screen z inspiracją pokazującą, jak chcę, żeby wyglądała sekcja procesu na moim landing page’u.
-
-Na podstawie tego screena zbuduj sekcję „Proces” w miejscu `[NAZWA KOMPONENTU, TEKST Z SEKCJI ALBO DOŁĄCZONY SCREEN SEKCJI]`. Potraktuj referencję jako wskazówkę dla struktury: układu nagłówka i opisu, rozmieszczenia kroków, ich numeracji, odstępów oraz sposobu połączenia ich w czytelną sekwencję.
-
-Dopasuj tę strukturę do treści mojego produktu oraz istniejących komponentów, tokenów i brandingu Mecha. Korzystaj z zatwierdzonych treści i plików strategicznych projektu. Nie kopiuj tekstów, logo ani identyfikacji wizualnej z inspiracji. Jeżeli brakuje informacji o procesie, wskaż je zamiast wymyślać kroki.
-
-Najpierw krótko opisz, jakie elementy kompozycji przeniesiesz ze screena, a następnie zbuduj sekcję. Zachowaj czytelną kolejność na mobile. Nie zmieniaj innych sekcji ani globalnych stylów. Nie dodawaj animacji lub interakcji, których nie da się ustalić na podstawie statycznego screena.
-
-Na końcu sprawdź sekcję w przeglądarce na desktopie i mobile oraz podsumuj wprowadzone zmiany.</pre>
-                  </div>
+                  <section class="animation-resources" aria-labelledby="animation-resources-title">
+                    <h3 id="animation-resources-title">Narzędzia do animacji na webie</h3>
+                    <p>Wybierz narzędzie pod efekt, który chcesz osiągnąć. Poniżej znajdziesz biblioteki i edytory, które możesz wykorzystać podczas hackathonu — każdy link prowadzi do oficjalnej strony lub dokumentacji.</p>
+                    <div class="link-list">
+                      <a class="link-row" href="https://gsap.com/docs/v3/Plugins/ScrollTrigger/" target="_blank" rel="noopener noreferrer">
+                        <span class="link-platform"><strong>GSAP + ScrollTrigger</strong><small>Do skoordynowanych wejść tekstów i obrazów, przypinanych sekcji oraz animacji sterowanych przewijaniem. Przykład: opowieść o produkcie odsłaniana krok po kroku podczas scrollowania.</small><span class="link-tag">(Sekwencje i scroll)</span></span>
+                        <span class="link-arrow primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
+                      </a>
+                      <a class="link-row" href="https://motion.dev/docs" target="_blank" rel="noopener noreferrer">
+                        <span class="link-platform"><strong>Motion</strong><small>Do animacji elementów HTML i SVG, przejść oraz efektów powiązanych ze scrollem. Przykład: delikatne wejścia kart i animowane wskaźniki. W Astro możesz użyć wersji JavaScript.</small><span class="link-tag">(Interakcje UI)</span></span>
+                        <span class="link-arrow primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
+                      </a>
+                      <a class="link-row" href="https://animejs.com/documentation/" target="_blank" rel="noopener noreferrer">
+                        <span class="link-platform"><strong>Anime.js</strong><small>Do animowania elementów strony i SVG w sekwencjach. Przykład: rysowanie linii diagramu procesu lub kaskadowe pojawianie się elementów kompozycji.</small><span class="link-tag">(SVG i sekwencje)</span></span>
+                        <span class="link-arrow primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
+                      </a>
+                      <a class="link-row" href="https://threejs.org/" target="_blank" rel="noopener noreferrer">
+                        <span class="link-platform"><strong>Three.js</strong><small>Do tworzenia scen 3D w przeglądarce: modeli, oświetlenia, kamer i efektów przestrzennych. Przykład: obracany model produktu albo interaktywny wizual w hero. Wymaga przygotowania sceny w kodzie.</small><span class="link-tag">(3D w kodzie)</span></span>
+                        <span class="link-arrow primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
+                      </a>
+                      <a class="link-row" href="https://spline.design/solutions/3d-web-experiences" target="_blank" rel="noopener noreferrer">
+                        <span class="link-platform"><strong>Spline</strong><small>Do projektowania interaktywnych scen 3D w wizualnym edytorze i osadzania ich na stronie. Przykład: obiekt w hero reagujący na ruch kursora lub kliknięcie.</small><span class="link-tag">(3D w edytorze)</span></span>
+                        <span class="link-arrow primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
+                      </a>
+                      <a class="link-row" href="https://www.rive.app/use-cases/websites" target="_blank" rel="noopener noreferrer">
+                        <span class="link-platform"><strong>Rive</strong><small>Do ilustracji i animowanych elementów reagujących na działania użytkownika. Przykład: postać reagująca na formularz albo ilustracja zmieniająca stan po kliknięciu. Przygotuj animację w Rive i osadź ją przez web runtime.</small><span class="link-tag">(Interaktywne ilustracje)</span></span>
+                        <span class="link-arrow primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
+                      </a>
+                      <a class="link-row" href="https://lottiefiles.com/tools/web-player" target="_blank" rel="noopener noreferrer">
+                        <span class="link-platform"><strong>Lottie / dotLottie</strong><small>Do odtwarzania przygotowanych animacji Lottie na stronie. Przykład: animowana ikona, loader lub ilustracja w sekcji korzyści. Potrzebujesz pliku animacji oraz odtwarzacza webowego.</small><span class="link-tag">(Gotowe animacje)</span></span>
+                        <span class="link-arrow primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
+                      </a>
+                      <a class="link-row" href="https://lenis.dev/" target="_blank" rel="noopener noreferrer">
+                        <span class="link-platform"><strong>Lenis</strong><small>Do wygładzania przewijania strony, także w połączeniu z animacjami scrollowymi. Przykład: płynne przechodzenie przez narracyjny landing page. Sam Lenis nie tworzy animacji elementów ani scen 3D.</small><span class="link-tag">(Płynne przewijanie)</span></span>
+                        <span class="link-arrow primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
+                      </a>
+                    </div>
+                    <p>Na start wybierz jeden efekt i jedno narzędzie. Opisz AI, co ma się poruszać, co uruchamia animację i jak ma wyglądać jej stan końcowy. Do prostego hovera wystarczy CSS; do rozbudowanej sekwencji rozważ GSAP, a do wizualu 3D — Three.js lub Spline. Poproś o wdrożenie w starterze Astro, sprawdzenie na mobile i uwzględnienie preferencji ograniczonego ruchu.</p>
+                  </section>
+                  <p>Gdy pierwsza wersja sekcji będzie gotowa, załącz wybrane materiały do Claude i opisz, <strong>jaki efekt chcesz uzyskać</strong>. Możesz na przykład:</p>
+                  <ul>
+                    <li>Wklejać inspiracje z Pinteresta i wskazywać, co chcesz z nich wykorzystać: kompozycję, typografię, klimat lub sposób prezentacji produktu.</li>
+                    <li>Tworzyć proste szkice struktury sekcji i załączać je jako wskazówkę dotyczącą układu.</li>
+                    <li>Przygotowywać w Figmie klatki kluczowe animacji — stan początkowy, kolejne etapy i stan końcowy — oraz opisywać przejścia między nimi.</li>
+                    <li>Załączać benchmarki innych stron lub komponentów i wyjaśniać, które rozwiązania chcesz zaadaptować.</li>
+                    <li>Opisywać własnymi słowami oczekiwany rezultat: co ma się pojawić, gdzie, w jakiej kolejności i jak ma się zachowywać.</li>
+                  </ul>
+                  <p>Aby precyzyjniej opisać rozmieszczenie elementów w swoim podglądzie startera, włącz <strong>Grid Guides w prawym dolnym rogu</strong>. Odwołuj się do widocznych kolumn, np. „Umieść nagłówek w kolumnach 1–5, a wizual w kolumnach 7–12”. Dopasuj numery do siatki wyświetlanej w Twoim projekcie.</p>
+                  <p>Traktuj inspiracje jako wskazówki do własnego rozwiązania, zgodnego z brandingiem projektu. Nie proś o bezpośrednie kopiowanie całej strony.</p>
                 </div>
-                <button class="button button--done" type="button" data-done><span class="primary-label">Oznacz jako gotowe</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
               </div>
             </details>
 
@@ -259,26 +321,44 @@ Na końcu sprawdź sekcję w przeglądarce na desktopie i mobile oraz podsumuj w
                   <p>Każdy prompt kieruj do jednej sekcji, komponentu albo animacji. Możesz pracować w 2–3 wątkach równolegle, jeśli ich zakresy nie dotykają tych samych plików i elementów.</p>
 
                   <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Z praktyki / sekcja na podstawie screena</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>zbuduj sekcje hero w projekcie inspirując się tym screenem, wykorzystaj naszą strategie i design system ale zrób to w takiej kompozycji jak na screenie ale w light mode na 100vh</pre>
+                    <div class="snippet-head"><span class="snippet-label">Z praktyki / hero na podstawie screena</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
+                    <pre>Zrób sekcję hero tak jak na screenie: u góry nagłówek z większym paddingiem od góry, a na dole visual na całą szerokość ekranu.</pre>
                   </div>
 
                   <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Z praktyki / rozmieszczenie na gridzie</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>W sekcji hero ustaw heading od lewej strony od pierwszej kolumny do czwartej oraz, że Oraz że wizual jest od dziewiątej kolumny do dwunastej, ale w tym samym row co heading i usun z lewej strony ten tekst meha shift demo prototype.</pre>
+                    <div class="snippet-head"><span class="snippet-label">Z praktyki / podmiana visuala</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
+                    <pre>Użyj tego visuala w sekcji hero.</pre>
                   </div>
 
                   <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Z praktyki / globalna korekta koloru</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>Dobra, więc co weźmy wprowadźmy w komponentie Reishio to, żeby ta szachownica wykorzystywała tylko czerni i biał, a najlepiej to, żeby było widać co się dzieje pod w tle szachownicy, a te boksy, które aktualnie są żółte, niech będą po prostu czarne w jakimś takim delikatnym opacity rzędu nie, dwóch procent. Wprowadź to do komponentu Ratio.</pre>
+                    <div class="snippet-head"><span class="snippet-label">Z praktyki / animacja visuala przy scrollowaniu</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
+                    <pre>Ustaw dla visuala w hero animację skalowania zdjęcia przy scrollowaniu. Po wejściu na stronę visual jest mały i przyklejony do prawej strony. Gdy scrolluję, zwiększa swoją szerokość, aż wypełni całą szerokość ekranu. Przez całą animację zachowaj proporcje 16:9.</pre>
                   </div>
 
                   <div class="snippet">
-                    <div class="snippet-head"><span class="snippet-label">Z praktyki / uproszczenie komponentu</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
-                    <pre>uprośćmy accordion - usuńmy mu te ikony tooltip i ikonę material symbols oraz progress bar i animacje. zrobmy to jako standardowy accordion tylko z górnym borderem w kolorze czarnym --color-border-inverse</pre>
+                    <div class="snippet-head"><span class="snippet-label">Z praktyki / asymetryczna sekcja ze statystykami</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
+                    <pre>Ustaw sekcję ze statystykami tak, żeby content startował od 7. kolumny, jak na załączonym screenie. Chodzi o taką asymetryczną kompozycję — po lewej tylko mały tekst w eyebrow.</pre>
+                  </div>
+
+                  <div class="snippet">
+                    <div class="snippet-head"><span class="snippet-label">Z praktyki / przesunięcie nagłówka w CTA</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
+                    <pre>W komponencie „Component name: CallToAction” ustaw jednak heading tak, żeby zaczynał się od 4. kolumny.</pre>
+                  </div>
+
+                  <div class="snippet">
+                    <div class="snippet-head"><span class="snippet-label">Z praktyki / mapa w sekcji CTA</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
+                    <pre>W sekcji CTA zaznaczyłem na screenie pomarańczowy blok. W tym miejscu chciałbym mieć mapę z pinezkami nawiązującą do „Live in 150+ locations, including Equinox and Ritz-Carlton.”
+
+Mapa może być interaktywna. Nie zamykaj jej w osobnym wrapperze — ma być bardziej organicznie dodana do layoutu. Załączam benchmark: chodzi o mapę na stroke’u, z samym obrysem, podobnie jak assety SVG w naszym systemie.
+
+Dodaj mapę w zaznaczonym miejscu i zwiększ wysokość całej sekcji.</pre>
+                  </div>
+
+                  <div class="snippet">
+                    <div class="snippet-head"><span class="snippet-label">Z praktyki / większa typografia w projekcie</span><button class="button copy" type="button" aria-label="Kopiuj do schowka" title="Kopiuj do schowka"><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="12" rx="1"/><path d="M15 9V3H4v12h5"/></svg></span></button></div>
+                    <pre>Zwiększ w projekcie skalę typograficzną nagłówków. Chcę większą typografię, bardziej w stylu display.</pre>
                   </div>
                 </div>
-                <button class="button button--done" type="button" data-done><span class="primary-label">Oznacz jako gotowe</span><span class="primary-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></button>
               </div>
             </details>
           </div>

@@ -69,3 +69,50 @@
 .flow-demo .demo-preview-ready{font-size:12px;margin:16px 0 0;color:var(--demo-ink)}
 @keyframes demo-url-click{0%{opacity:0;transform:translate(15px,24px)}30%,60%{opacity:1;transform:translate(0,0)}70%{opacity:1;transform:scale(.8)}80%{opacity:1;transform:scale(1)}100%{opacity:0;transform:translate(0,0)}}
 @media(prefers-reduced-motion:reduce){.demo-local-url::after{animation:none!important;display:none}}
+
+/* Click the folder control above the composer, then choose a local directory. */
+[data-kind="folder-picker"] .demo-body{position:relative;display:block;min-height:300px}
+.demo-project-chat{min-height:250px;max-width:520px;margin:auto}
+.demo-project-composer{margin-top:auto}
+.demo-folder-control{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:12px}
+.demo-folder-icon{position:relative;display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--demo-line);color:var(--wide-purple)}
+.demo-folder-selected{color:var(--wide-purple)}
+.demo-folder-dialog{position:absolute;z-index:1;inset:24px 16px auto;max-width:400px;margin:auto;border:1px solid var(--demo-line);background:var(--demo-paper);box-shadow:0 12px 32px #0002;opacity:0;visibility:hidden}
+.demo-picker-heading{padding:16px;border-bottom:1px solid var(--demo-line);font-size:14px}
+.demo-picker-path{padding:12px 16px;color:var(--demo-muted);font-size:12px;background:var(--demo-surface)}
+.demo-picker-row{position:relative;display:flex;align-items:center;gap:10px;margin:16px;padding:12px;background:var(--wide-purple-100);color:var(--wide-purple);border:1px solid var(--wide-purple)}
+.demo-picker-check{margin-left:auto}
+.demo-picker-footer{display:flex;justify-content:flex-end;padding:0 16px 16px}
+.demo-picker-open{position:relative;padding:8px 18px;background:var(--wide-purple);color:white;font-size:12px}
+.demo-folder-icon::after,.demo-picker-row::after,.demo-picker-open::after{content:"";position:absolute;z-index:2;width:20px;height:24px;right:6px;top:16px;opacity:0;pointer-events:none;background:var(--demo-ink);clip-path:polygon(0 0,100% 65%,55% 67%,35% 100%)}
+.flow-demo[data-demo="open-claude"][data-phase="0"] .demo-folder-icon{background:var(--wide-purple-100);outline:3px solid var(--wide-purple-100)}
+.flow-demo[data-demo="open-claude"][data-phase="0"] .demo-folder-icon::after{animation:demo-url-click 2s ease both;animation-play-state:paused}
+.flow-demo[data-demo="open-claude"][data-phase="1"] .demo-folder-dialog{opacity:1;visibility:visible}
+.flow-demo[data-demo="open-claude"][data-phase="1"] .demo-picker-row::after{animation:demo-url-click 1.6s ease both;animation-play-state:paused}
+.flow-demo[data-demo="open-claude"][data-phase="1"] .demo-picker-open::after{animation:demo-url-click 1.6s 1.8s ease both;animation-play-state:paused}
+.flow-demo.demo-running[data-demo="open-claude"] .demo-folder-icon::after,.flow-demo.demo-running[data-demo="open-claude"] .demo-picker-row::after,.flow-demo.demo-running[data-demo="open-claude"] .demo-picker-open::after{animation-play-state:running}
+.flow-demo[data-demo="open-claude"][data-phase="2"] .demo-folder-label{display:none}
+@media(max-width:760px){[data-kind="folder-picker"] .demo-body{min-height:330px}.demo-project-chat{min-height:290px}}
+@media(prefers-reduced-motion:reduce){.demo-folder-icon::after,.demo-picker-row::after,.demo-picker-open::after{animation:none!important;display:none}}
+
+/* Open the terminal from the top toolbar; keep the chat composer at the bottom. */
+[data-kind="server"] .demo-body{grid-template-columns:minmax(0,1fr) minmax(0,0fr);grid-template-rows:minmax(0,1fr);align-items:stretch;gap:0;padding:0;height:380px;min-height:380px;overflow:hidden;transition:grid-template-columns .65s ease}
+.demo-server-chat{display:flex;flex-direction:column;padding:24px;gap:16px}
+.flow-demo .demo-server-chat p{font-size:16px;margin:0;overflow-wrap:anywhere}
+.demo-server-chat .demo-input{gap:8px}
+.demo-server-panel{overflow:hidden;visibility:hidden;transform:translateX(100%);transition:transform .65s ease,visibility .65s}
+.demo-server-terminal{height:100%;overflow:auto;border:0;border-left:1px solid var(--demo-line);padding:16px}
+.flow-demo[data-demo="start-server"]:not([data-phase="0"]) .demo-body{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
+.flow-demo[data-demo="start-server"]:not([data-phase="0"]) .demo-server-panel{visibility:visible;transform:none}
+[data-kind="server"] .demo-terminal-icon{position:relative}
+[data-kind="server"] .demo-terminal-icon::after{content:"";position:absolute;width:20px;height:24px;right:4px;top:12px;opacity:0;background:var(--demo-ink);clip-path:polygon(0 0,100% 65%,55% 67%,35% 100%);pointer-events:none}
+.flow-demo[data-demo="start-server"][data-phase="0"] .demo-terminal-icon{background:var(--wide-purple-100);color:var(--wide-purple);outline:3px solid var(--wide-purple-100)}
+.flow-demo[data-demo="start-server"][data-phase="0"] .demo-terminal-icon::after{animation:demo-url-click 2s ease both;animation-play-state:paused}
+.demo-command>.demo-typed-command{width:13ch;max-width:100%;white-space:nowrap;overflow:hidden;font:inherit;color:var(--demo-ink)}
+.flow-demo[data-demo="start-server"][data-phase="1"] .demo-type-install,.flow-demo[data-demo="start-server"][data-phase="2"] .demo-type-dev{animation:demo-terminal-type 1.4s .7s steps(13,end) both;animation-play-state:paused}
+.flow-demo.demo-running[data-demo="start-server"] .demo-terminal-icon::after,.flow-demo.demo-running[data-demo="start-server"] .demo-typed-command{animation-play-state:running}
+@keyframes demo-terminal-type{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+/* Manual stepping shows the complete command; playback animates typing. */
+.flow-demo[data-demo="start-server"]:not(.demo-running) .demo-typed-command{animation:none}
+@media(max-width:760px){.demo-server-chat{padding:16px 10px}.demo-server-terminal{padding:16px 10px;font-size:11px}[data-kind="server"] .demo-body{min-height:380px}.demo-server-terminal .demo-mini{font-size:10px}.demo-server-chat .demo-input{padding:10px 8px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){[data-kind="server"] .demo-body,.demo-server-panel{transition:none}[data-kind="server"] .demo-terminal-icon::after{animation:none!important;display:none}.flow-demo[data-demo="start-server"] .demo-typed-command{animation:none!important}}

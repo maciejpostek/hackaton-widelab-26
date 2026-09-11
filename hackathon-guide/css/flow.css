@@ -502,7 +502,13 @@ pre { padding: 28px; }
 .link-row:not([aria-disabled="true"]):is(:hover,:focus-visible) .primary-icon { transform: scale(1.1); }
 
 /* Sharp checkbox with a brand-colored completed state. */
-.task-check { border-radius: 0; }
+.task-check {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 0;
+  line-height: 0;
+}
 .task.is-done .task-check {
   background: var(--wide-purple);
   border-color: var(--wide-purple);
@@ -510,11 +516,11 @@ pre { padding: 28px; }
 .task.is-done .task-check::after {
   content: "";
   display: block;
-  width: 6px;
-  height: 11px;
-  border: solid var(--wide-white);
-  border-width: 0 2px 2px 0;
-  transform: translateY(-2px) rotate(45deg);
+  width: 14px;
+  height: 14px;
+  border: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='m3 7 3 3 5-6' stroke='white' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  transform: none;
 }
 
 .button--download .primary-icon,
@@ -660,3 +666,12 @@ pre { padding: 28px; }
 /* Full-bleed closing artwork, outside the agenda content container. */
 .agenda-footer-visual{width:100%;margin:0;padding:0;line-height:0;overflow:hidden}
 .agenda-footer-visual svg{display:block;width:100%;height:auto;max-width:none}
+
+/* Animation resources reuse the inspiration rows and their responsive layout. */
+.animation-resources { margin-block: 56px; min-width: 0; }
+.animation-resources h3 { margin: 0 0 24px; font-size: 32px; font-weight: 400; line-height: 1.2; }
+@media (max-width: 760px) {
+  .animation-resources { margin-block: 32px; }
+  .animation-resources h3 { font-size: 24px; }
+  .animation-resources .link-platform small { font-size: 16px; }
+}

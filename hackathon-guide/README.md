@@ -28,10 +28,9 @@ Postęp agendy zapisuje się pod kluczem `hackathon-2026-guide-progress-v2`. Pop
 
 Pozostawione zgodnie ze źródłem, bez wymyślania adresów:
 
-1. Pobranie startera Astro — `data-missing-link="astro-starter"`.
-2. CSS Awards w liście inspiracji — pusty URL.
+- CSS Awards w liście inspiracji — pusty URL.
 
-Kliknięcie tych pozycji wyświetla „Link do uzupełnienia”. Treści o Claude, Mecha i kroku 0 są zachowane dosłownie. Przewodnik nie wykonuje zawartych w nim komend.
+Kliknięcie tej pozycji wyświetla „Link do uzupełnienia”. Treści o Claude, Mecha i kroku 0 są zachowane dosłownie. Przewodnik nie wykonuje zawartych w nim komend.
 
 ## Weryfikacja — 9 września 2026
 
@@ -63,3 +62,7 @@ Weryfikacja: składnia JS, zachowanie oryginalnych treści oraz test sterowania 
 `css/mobile.css` ładowany na końcu: tytuły zadań 20 px (18 px do 480 px), mniejsze paddingi, gutter timeline’u 20–24 px, kompaktowe plusy i checkboxy. Cały nagłówek accordionu pozostaje klikalny. Dostosowane także demonstracje, pobieranie pakietów i bloki kodu.
 
 Sprawdzono przez lokalny HTTP: 320, 390, 760 i 1440 px bez poziomego overflow strony. Przy 320 px wszystkie 11 accordionów otwarte, bez overflow demonstracji; brak błędów w konsoli JS. Widok 390 px sprawdzono na zrzucie ekranu.
+
+## Starter Astro do pobrania
+
+Przycisk „Pobierz starter (ZIP)” w kroku 01.1 prowadzi do `downloads/astro-mecha-starterpack.zip`. To kopia archiwum dostarczonego przez użytkownika. Sprawdzono integralność ZIP oraz zgodność SHA-256 z plikiem źródłowym.
